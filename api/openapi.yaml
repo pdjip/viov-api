@@ -1,0 +1,1776 @@
+openapi: 3.0.3
+info:
+  description: Vio-V API
+  title: Vio-V
+  version: 1.0.0
+servers:
+- url: https://apiv1.vio-v.com/api/v3
+- url: http://localhost:8080/api/v3
+security:
+- vio_auth:
+  - read.group
+  - read.self
+  - read.company
+tags:
+- description: Everything about your Account
+  name: own
+- description: Everything about your Groups
+  name: group
+- description: Everything about your Company
+  name: company
+- description: Everything general
+  name: system
+paths:
+  /group:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Group"
+          description: OK
+      security:
+      - vio_auth:
+        - read.group
+      summary: Get Group Data
+      tags:
+      - group
+  /group/members:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/GroupMember"
+                type: array
+          description: OK
+      security:
+      - vio_auth:
+        - read.group
+      summary: Get Group Members Data
+      tags:
+      - group
+  /group/ranks:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/GroupRank"
+                type: array
+          description: OK
+      security:
+      - vio_auth:
+        - read.group
+      summary: Get Group Rank Data
+      tags:
+      - group
+  /group/vehicles:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/GroupVehicle"
+                type: array
+          description: OK
+      security:
+      - vio_auth:
+        - read.group
+      summary: Get Group Vehicles Data
+      tags:
+      - group
+  /group/skin:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/GroupSkin"
+                type: array
+          description: OK
+      security:
+      - vio_auth:
+        - read.group
+      summary: Get Group Skin Data
+      tags:
+      - group
+  /group/spraies:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/GroupSpray"
+                type: array
+          description: OK
+      security:
+      - vio_auth:
+        - read.group
+      summary: Get Group Spraies Data
+      tags:
+      - group
+  /group/factories:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/GroupSpray"
+                type: array
+          description: OK
+      security:
+      - vio_auth:
+        - read.group
+      summary: Get Group Factories Data | Squad only!
+      tags:
+      - group
+  /group/fairplay_blacklist:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/GroupSpray"
+                type: array
+          description: OK
+      security:
+      - vio_auth: []
+      summary: Get Server Fairplay Blacklist
+      tags:
+      - group
+  /group/own_factories:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/GroupOwnFactory"
+                type: array
+          description: OK
+      security:
+      - vio_auth:
+        - read.group
+      summary: Get Group Produktion Factories Data
+      tags:
+      - group
+  /group/areas:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/GangArea"
+                type: array
+          description: OK
+      security:
+      - vio_auth:
+        - read.group
+      summary: Get Group Areas Data (GangWars)
+      tags:
+      - group
+  /group/storage:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InventoryResponse"
+          description: Successful response containing inventory data
+      security:
+      - vio_auth:
+        - read.group
+      summary: Get Group Storage
+      tags:
+      - group
+  /group/storage/logs:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/GroupStorageLog"
+                type: array
+          description: OK
+      security:
+      - vio_auth:
+        - read.group
+      summary: Get Group Storage Logs
+      tags:
+      - group
+  /group/shops:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/GroupShop"
+                type: array
+          description: OK
+      security:
+      - vio_auth:
+        - read.group
+      summary: Get Group Shops
+      tags:
+      - group
+  /self:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Character"
+          description: OK
+      security:
+      - vio_auth:
+        - read.self
+      summary: Get Own Data
+      tags:
+      - own
+  /self/storage:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InventoryResponse"
+          description: Successful response containing inventory data
+      security:
+      - vio_auth:
+        - read.self
+      summary: Get Own Storage
+      tags:
+      - own
+  /self/playingtime:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/CharacterPlaytime"
+                type: array
+          description: OK
+      security:
+      - vio_auth:
+        - read.self
+      summary: Get Own Playingtime statistics
+      tags:
+      - own
+  /self/banklogs:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/CharacterBankLog"
+                type: array
+          description: OK
+      security:
+      - vio_auth:
+        - read.self
+      summary: Get Own Banklogs
+      tags:
+      - own
+  /system/items:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/SystemItem"
+                type: array
+          description: OK
+      security:
+      - vio_auth: []
+      summary: Get Items Data
+      tags:
+      - system
+  /system/groupwars:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/SystemGroupWar"
+                type: array
+          description: OK
+      security:
+      - vio_auth: []
+      summary: Get GroupWars Data
+      tags:
+      - system
+components:
+  schemas:
+    Group:
+      example:
+        B: 7
+        Server: 5
+        G: 2
+        Chat_B: 2
+        G2: 1
+        Name: Name
+        SkinMale: SkinMale
+        R: 5
+        Relationships: Relationships
+        Rang1: Rang1
+        Rang0: Rang0
+        Rang3: Rang3
+        ID: 0
+        Memberlimit: 4
+        Rang2: Rang2
+        Rang5: Rang5
+        Rang4: Rang4
+        Msg: Msg
+        R2: 1
+        Boosts: Boosts
+        SkinFemale: SkinFemale
+        LastExp: 1
+        B2: 6
+        Type: Type
+        Chat_R: 9
+        Level: 1
+        Tag: 7
+        Exp: 6
+        Chat_G: 3
+        Boost1: 7
+        CraftingStorage: 1
+      properties:
+        ID:
+          format: int32
+          type: integer
+        Name:
+          type: string
+        Exp:
+          format: int32
+          type: integer
+        Level:
+          format: int32
+          type: integer
+        Server:
+          format: int32
+          type: integer
+        Msg:
+          type: string
+        R:
+          format: int32
+          type: integer
+        G:
+          format: int32
+          type: integer
+        B:
+          format: int32
+          type: integer
+        Chat_R:
+          format: int32
+          type: integer
+        Chat_G:
+          format: int32
+          type: integer
+        Chat_B:
+          format: int32
+          type: integer
+        Memberlimit:
+          format: int32
+          type: integer
+        Tag:
+          format: int32
+          type: integer
+        Rang0:
+          type: string
+        Rang1:
+          type: string
+        Rang2:
+          type: string
+        Rang3:
+          type: string
+        Rang4:
+          type: string
+        Rang5:
+          type: string
+        LastExp:
+          format: int32
+          type: integer
+        R2:
+          format: int32
+          type: integer
+        G2:
+          format: int32
+          type: integer
+        B2:
+          format: int32
+          type: integer
+        Type:
+          type: string
+        Boost1:
+          format: int32
+          type: integer
+        SkinMale:
+          type: string
+        SkinFemale:
+          type: string
+        Boosts:
+          type: string
+        Relationships:
+          type: string
+        CraftingStorage:
+          format: int32
+          type: integer
+      required:
+      - B2
+      - Boost1
+      - Boosts
+      - Chat_B
+      - Chat_G
+      - Chat_R
+      - Exp
+      - G
+      - G2
+      - ID
+      - LastExp
+      - Level
+      - Memberlimit
+      - Msg
+      - Name
+      - R2
+      - Rang0
+      - Rang1
+      - Rang4
+      - Rang5
+      - Relationships
+      - Server
+      - SkinFemale
+      - SkinMale
+      - Tag
+      - Type
+      type: object
+    GroupMember:
+      example:
+        CharacterID: 0
+        Permissions: Permissions
+        Activity: 5
+        Rank: 1
+        Online: true
+        LastActivity: 5
+        GroupID: 6
+        Name: Name
+      properties:
+        CharacterID:
+          format: int32
+          type: integer
+        GroupID:
+          format: int32
+          type: integer
+        Rank:
+          format: int32
+          type: integer
+        Activity:
+          format: int32
+          type: integer
+        Name:
+          type: string
+        Permissions:
+          type: string
+        LastActivity:
+          format: int32
+          type: integer
+        Online:
+          type: boolean
+      required:
+      - Activity
+      - Aimbot
+      - CharacterID
+      - GroupID
+      - LastActivity
+      - Permissions
+      - Rank
+      type: object
+    GroupRank:
+      example:
+        RankID: 0
+        Leader: true
+        Bonus: 1
+        GroupID: 6
+        Name: Name
+      properties:
+        RankID:
+          format: int32
+          type: integer
+        GroupID:
+          format: int32
+          type: integer
+        Name:
+          type: string
+        Bonus:
+          format: int32
+          type: integer
+        Leader:
+          type: boolean
+      required:
+      - Bonus
+      - GroupID
+      - Leader
+      - Name
+      - RankID
+      type: object
+    GroupSkin:
+      example:
+        Torso: 6
+        Legs: 5
+        Gender: 1
+        FeetTexture: 7
+        PrimKey: 1
+        UndershirtTexture: 2
+        TopsTexture: 7
+        Feet: 2
+        Accessories: 9
+        LegsTexture: 5
+        TorsoTexture: 1
+        Tops: 4
+        GangID: 0
+        Undershirt: 3
+      properties:
+        GangID:
+          format: int32
+          type: integer
+        Torso:
+          format: int32
+          type: integer
+        TorsoTexture:
+          format: int32
+          type: integer
+        Legs:
+          format: int32
+          type: integer
+        LegsTexture:
+          format: int32
+          type: integer
+        Feet:
+          format: int32
+          type: integer
+        FeetTexture:
+          format: int32
+          type: integer
+        Accessories:
+          format: int32
+          type: integer
+        Undershirt:
+          format: int32
+          type: integer
+        UndershirtTexture:
+          format: int32
+          type: integer
+        Tops:
+          format: int32
+          type: integer
+        TopsTexture:
+          format: int32
+          type: integer
+        Gender:
+          format: int32
+          type: integer
+        PrimKey:
+          format: int32
+          type: integer
+      required:
+      - Accessories
+      - Feet
+      - FeetTexture
+      - GangID
+      - Gender
+      - Legs
+      - LegsTexture
+      - Tops
+      - TopsTexture
+      - Torso
+      - TorsoTexture
+      - Undershirt
+      - UndershirtTexture
+      type: object
+    GroupSpray:
+      example:
+        SprayObject: SprayObject
+        ID: ID
+        Timestamp: 6
+        GroupID: 0
+      properties:
+        ID:
+          type: string
+        GroupID:
+          format: int32
+          type: integer
+        SprayObject:
+          format: byte
+          type: string
+        Timestamp:
+          format: int32
+          type: integer
+      required:
+      - GroupID
+      - ID
+      - SprayObject
+      - Timestamp
+      type: object
+    GroupStorageLog:
+      example:
+        Item: Item
+        Amount: Amount
+        Timestamp: Timestamp
+        GroupID: 0
+        Name: Name
+      properties:
+        GroupID:
+          format: int32
+          type: integer
+        Name:
+          type: string
+        Amount:
+          type: string
+        Item:
+          type: string
+        Timestamp:
+          type: string
+      required:
+      - Amount
+      - GroupID
+      - Item
+      - Name
+      - Timestamp
+      type: object
+    GroupVehicle:
+      example:
+        PosZ: PosZ
+        PosX: PosX
+        Color2B: 2
+        PosY: PosY
+        PlateText: PlateText
+        Hydraulics: 7
+        Color2G: 3
+        Hash: Hash
+        FrontBumper: 7
+        Spoilers: 4
+        GroupID: 6
+        WheelType: 7
+        InteriorColor: 8
+        Color1R: 5
+        Ornaments: 6
+        Permission: Permission
+        Horns: 9
+        ID: 0
+        Hood: 1
+        Engine: 9
+        RotY: RotY
+        RotZ: RotZ
+        RotX: RotX
+        Xenon: 1
+        Turbo: 6
+        Plateholders: 6
+        Exhaust: 1
+        Color2R: 9
+        DialDesign: 3
+        FrontWheels: 2
+        Frame: 6
+        ModName: ModName
+        Transmission: 8
+        LastDriver: LastDriver
+        SideSkirt: 1
+        ShiftLever: 7
+        PaintArt: 3
+        RightFender: 5
+        Roof: 9
+        BackWheels: 6
+        Armor: 3
+        ChipTuning: 7
+        Brakes: 6
+        Plaques: 0
+        SpawnGarage: 5
+        TrimDesign: 5
+        SteeringWheel: 3
+        Color1B: 7
+        RearBumper: 1
+        Health: 3
+        Color1G: 2
+        Suspension: 6
+        Color2: 5
+        Color1: 1
+        Plate: 0
+        Fender: 4
+        WheelColor: 3
+        Fuel: Fuel
+        Grille: 7
+        Livery: 6
+        WindowTint: 4
+        DirtLevel: DirtLevel
+        BuyDate: 2000-01-23T04:56:07.000+00:00
+      properties:
+        ID:
+          format: int64
+          type: integer
+        GroupID:
+          format: int32
+          type: integer
+        Hash:
+          type: string
+        PosX:
+          type: string
+        PosY:
+          type: string
+        PosZ:
+          type: string
+        RotX:
+          type: string
+        RotY:
+          type: string
+        RotZ:
+          type: string
+        Color1:
+          format: int32
+          type: integer
+        Color2:
+          format: int32
+          type: integer
+        BuyDate:
+          format: date-time
+          type: string
+        Color1R:
+          format: int32
+          type: integer
+        Color1G:
+          format: int32
+          type: integer
+        Color1B:
+          format: int32
+          type: integer
+        Color2R:
+          format: int32
+          type: integer
+        Color2G:
+          format: int32
+          type: integer
+        Color2B:
+          format: int32
+          type: integer
+        Spoilers:
+          format: int32
+          type: integer
+        FrontBumper:
+          format: int32
+          type: integer
+        RearBumper:
+          format: int32
+          type: integer
+        SideSkirt:
+          format: int32
+          type: integer
+        Exhaust:
+          format: int32
+          type: integer
+        Frame:
+          format: int32
+          type: integer
+        Grille:
+          format: int32
+          type: integer
+        Hood:
+          format: int32
+          type: integer
+        Fender:
+          format: int32
+          type: integer
+        RightFender:
+          format: int32
+          type: integer
+        Roof:
+          format: int32
+          type: integer
+        Engine:
+          format: int32
+          type: integer
+        Brakes:
+          format: int32
+          type: integer
+        Transmission:
+          format: int32
+          type: integer
+        Horns:
+          format: int32
+          type: integer
+        Suspension:
+          format: int32
+          type: integer
+        Armor:
+          format: int32
+          type: integer
+        Turbo:
+          format: int32
+          type: integer
+        Xenon:
+          format: int32
+          type: integer
+        FrontWheels:
+          format: int32
+          type: integer
+        BackWheels:
+          format: int32
+          type: integer
+        Plateholders:
+          format: int32
+          type: integer
+        TrimDesign:
+          format: int32
+          type: integer
+        Ornaments:
+          format: int32
+          type: integer
+        DialDesign:
+          format: int32
+          type: integer
+        SteeringWheel:
+          format: int32
+          type: integer
+        ShiftLever:
+          format: int32
+          type: integer
+        Plaques:
+          format: int32
+          type: integer
+        Hydraulics:
+          format: int32
+          type: integer
+        Livery:
+          format: int32
+          type: integer
+        Plate:
+          format: int32
+          type: integer
+        WindowTint:
+          format: int32
+          type: integer
+        ModName:
+          type: string
+        InteriorColor:
+          format: int32
+          type: integer
+        ChipTuning:
+          format: int32
+          type: integer
+        PaintArt:
+          format: int32
+          type: integer
+        WheelColor:
+          format: int32
+          type: integer
+        WheelType:
+          format: int32
+          type: integer
+        SpawnGarage:
+          format: int32
+          type: integer
+        LastDriver:
+          type: string
+        PlateText:
+          type: string
+        Fuel:
+          type: string
+        Health:
+          format: int32
+          type: integer
+        DirtLevel:
+          type: string
+        Permission:
+          type: string
+      required:
+      - Armor
+      - BackWheels
+      - Brakes
+      - BuyDate
+      - ChipTuning
+      - Color1
+      - Color1B
+      - Color1G
+      - Color1R
+      - Color2
+      - Color2B
+      - Color2G
+      - Color2R
+      - DialDesign
+      - DirtLevel
+      - Engine
+      - Exhaust
+      - Fender
+      - Frame
+      - FrontBumper
+      - FrontWheels
+      - Fuel
+      - Grille
+      - GroupID
+      - Hash
+      - Health
+      - Hood
+      - Horns
+      - Hydraulics
+      - ID
+      - InteriorColor
+      - LastDriver
+      - Livery
+      - ModName
+      - Ornaments
+      - PaintArt
+      - Plaques
+      - Plate
+      - PlateText
+      - Plateholders
+      - PosX
+      - PosY
+      - PosZ
+      - RearBumper
+      - RightFender
+      - Roof
+      - RotX
+      - RotY
+      - RotZ
+      - ShiftLever
+      - SideSkirt
+      - SpawnGarage
+      - Spoilers
+      - SteeringWheel
+      - Suspension
+      - Transmission
+      - TrimDesign
+      - Turbo
+      - WheelColor
+      - WheelType
+      - WindowTint
+      - Xenon
+      type: object
+    GroupFactory:
+      properties:
+        ID:
+          format: int32
+          type: integer
+        GroupID:
+          format: int32
+          type: integer
+        Storage:
+          format: int32
+          type: integer
+        NextCapture:
+          format: int32
+          type: integer
+        CraftingStorage:
+          format: int32
+          type: integer
+      required:
+      - GroupID
+      - ID
+      - NextCapture
+      - Storage
+      type: object
+    GroupLSPDBlacklist:
+      properties:
+        GroupID:
+          format: int32
+          type: integer
+        GroupName:
+          type: string
+        Expiry:
+          format: int32
+          type: integer
+        Reason:
+          type: string
+        Creator:
+          type: string
+      required:
+      - Creator
+      - Expiry
+      - GroupID
+      - Reason
+      type: object
+    GroupOwnFactory:
+      example:
+        Type: Type
+        Storage: Storage
+        ID: 0
+        MasterID: 1
+        CraftingStorages: CraftingStorages
+        EXP: 5
+        Settings: Settings
+        GroupID: 6
+      properties:
+        ID:
+          format: int32
+          type: integer
+        Type:
+          type: string
+        GroupID:
+          format: int32
+          type: integer
+        MasterID:
+          format: int32
+          type: integer
+        Storage:
+          type: string
+        Settings:
+          type: string
+        CraftingStorages:
+          type: string
+        EXP:
+          format: int32
+          type: integer
+      required:
+      - CraftingStorages
+      - EXP
+      - GroupID
+      - MasterID
+      - Settings
+      - Storage
+      - Type
+      type: object
+    GroupShop:
+      example:
+        Money: 6
+        Mats: 1
+        ShopId: 0
+      properties:
+        ShopId:
+          format: int32
+          type: integer
+        Money:
+          format: int32
+          type: integer
+        Mats:
+          format: int32
+          type: integer
+      required:
+      - Mats
+      - Money
+      - ShopId
+      type: object
+    Character:
+      example:
+        FactionTime: 1
+        BonusVehicleLimit: 9
+        Licenses: Licenses
+        Gender: 5
+        Wanteds: 3
+        SkillSync: 6
+        Tattoos: Tattoos
+        QuestStatus: 6
+        Playingtime: 1
+        Name: Name
+        WantedArchiv: WantedArchiv
+        ActiveStatus: ActiveStatus
+        Accessory: Accessory
+        WeaponLicenseB: 1
+        WeaponLicenseA: 7
+        FoodStatus: 9
+        Skills: Skills
+        WeaponLicenseC: 1
+        BusExp: 7
+        QuestID: QuestID
+        SkillBranches: SkillBranches
+        ID: 0
+        DailyBonus: DailyBonus
+        DrivingLicensesBlockedTimestamp: 8
+        Spawn: Spawn
+        AccountID: 6
+        SpawnID: 9
+        DailyQuests: DailyQuests
+        ActivityTimestamp: 1
+        Grade: 4.965218492984954
+        Raiting: 5
+        DrivingLicenseA: 9
+        SkillPoints: SkillPoints
+        VehicleLimit: 2
+        Achievements: Achievements
+        ExpBoost: 3
+        PhoneNumber: 7
+        MethTime: 4
+        Skin: Skin
+        ActivityStep: 6
+        TotalStatus: TotalStatus
+        STVO: 5
+        JailTime: 2
+      properties:
+        ID:
+          format: int32
+          type: integer
+        AccountID:
+          format: int32
+          type: integer
+        Name:
+          type: string
+        Playingtime:
+          format: int32
+          type: integer
+        Gender:
+          format: int32
+          type: integer
+        STVO:
+          format: int32
+          type: integer
+        VehicleLimit:
+          format: int32
+          type: integer
+        BusExp:
+          format: int32
+          type: integer
+        Spawn:
+          type: string
+        SpawnID:
+          format: int32
+          type: integer
+        Wanteds:
+          format: int32
+          type: integer
+        JailTime:
+          format: int32
+          type: integer
+        MethTime:
+          format: int32
+          type: integer
+        WeaponLicenseA:
+          format: int32
+          type: integer
+        WeaponLicenseB:
+          format: int32
+          type: integer
+        WeaponLicenseC:
+          format: int32
+          type: integer
+        ActivityTimestamp:
+          format: int32
+          type: integer
+        QuestID:
+          type: string
+        QuestStatus:
+          format: int32
+          type: integer
+        PhoneNumber:
+          format: int32
+          type: integer
+        FactionTime:
+          format: int32
+          type: integer
+        Grade:
+          format: double
+          type: number
+        Raiting:
+          format: int32
+          type: integer
+        DrivingLicenseA:
+          format: int32
+          type: integer
+        FoodStatus:
+          format: int32
+          type: integer
+        ActivityStep:
+          format: int32
+          type: integer
+        DrivingLicensesBlockedTimestamp:
+          format: int32
+          type: integer
+        WantedArchiv:
+          type: string
+        Skin:
+          type: string
+        Skills:
+          type: string
+        DailyQuests:
+          type: string
+        BonusVehicleLimit:
+          format: int32
+          type: integer
+        Accessory:
+          type: string
+        Achievements:
+          type: string
+        TotalStatus:
+          type: string
+        ActiveStatus:
+          type: string
+        SkillPoints:
+          type: string
+        SkillBranches:
+          type: string
+        SkillSync:
+          format: int32
+          type: integer
+        ExpBoost:
+          format: int32
+          type: integer
+        Tattoos:
+          type: string
+        Licenses:
+          type: string
+        DailyBonus:
+          type: string
+      required:
+      - AccountID
+      - ActivityStep
+      - FoodStatus
+      - Gender
+      - Name
+      - QuestID
+      - Raiting
+      - STVO
+      - SkillSync
+      - VehicleLimit
+      type: object
+    SystemItem:
+      example:
+        Description: Description
+        Legal: 1
+        AllowTrade: 9
+        PriceMax: 7
+        OnlyOnce: 2
+        Heal: 5
+        PriceMin: 2
+        ID: 0
+        Sync: 3
+        Weight: 6.027456183070403
+        Name: Name
+        Food: 5
+      properties:
+        ID:
+          format: int32
+          type: integer
+        Name:
+          type: string
+        Description:
+          type: string
+        Weight:
+          format: double
+          type: number
+        Legal:
+          format: int32
+          type: integer
+        Heal:
+          format: int32
+          type: integer
+        Food:
+          format: int32
+          type: integer
+        PriceMin:
+          format: int32
+          type: integer
+        PriceMax:
+          format: int32
+          type: integer
+        AllowTrade:
+          format: int32
+          type: integer
+        Sync:
+          format: int32
+          type: integer
+        OnlyOnce:
+          format: int32
+          type: integer
+      required:
+      - AllowTrade
+      - Food
+      - Heal
+      - ID
+      - Legal
+      - OnlyOnce
+      - PriceMax
+      - PriceMin
+      - Sync
+      type: object
+    Vehicle:
+      properties:
+        ID:
+          format: int32
+          type: integer
+        CharacterID:
+          format: int32
+          type: integer
+        Hash:
+          type: string
+        PosX:
+          type: string
+        PosY:
+          type: string
+        PosZ:
+          type: string
+        RotX:
+          type: string
+        RotY:
+          type: string
+        RotZ:
+          type: string
+        BuyDate:
+          format: date-time
+          type: string
+        Color1R:
+          format: int32
+          type: integer
+        Color1G:
+          format: int32
+          type: integer
+        Color1B:
+          format: int32
+          type: integer
+        Color2R:
+          format: int32
+          type: integer
+        Color2G:
+          format: int32
+          type: integer
+        Color2B:
+          format: int32
+          type: integer
+        Spoilers:
+          format: int32
+          type: integer
+        FrontBumper:
+          format: int32
+          type: integer
+        RearBumper:
+          format: int32
+          type: integer
+        SideSkirt:
+          format: int32
+          type: integer
+        Exhaust:
+          format: int32
+          type: integer
+        Frame:
+          format: int32
+          type: integer
+        Grille:
+          format: int32
+          type: integer
+        Hood:
+          format: int32
+          type: integer
+        Fender:
+          format: int32
+          type: integer
+        RightFender:
+          format: int32
+          type: integer
+        Roof:
+          format: int32
+          type: integer
+        Engine:
+          format: int32
+          type: integer
+        Brakes:
+          format: int32
+          type: integer
+        Transmission:
+          format: int32
+          type: integer
+        Horns:
+          format: int32
+          type: integer
+        Suspension:
+          format: int32
+          type: integer
+        Armor:
+          format: int32
+          type: integer
+        Turbo:
+          format: int32
+          type: integer
+        Xenon:
+          format: int32
+          type: integer
+        FrontWheels:
+          format: int32
+          type: integer
+        BackWheels:
+          format: int32
+          type: integer
+        Plateholders:
+          format: int32
+          type: integer
+        TrimDesign:
+          format: int32
+          type: integer
+        Ornaments:
+          format: int32
+          type: integer
+        DialDesign:
+          format: int32
+          type: integer
+        SteeringWheel:
+          format: int32
+          type: integer
+        ShiftLever:
+          format: int32
+          type: integer
+        Plaques:
+          format: int32
+          type: integer
+        Hydraulics:
+          format: int32
+          type: integer
+        Livery:
+          format: int32
+          type: integer
+        Plate:
+          format: int32
+          type: integer
+        WindowTint:
+          format: int32
+          type: integer
+        NeonStateLeft:
+          format: int32
+          type: integer
+        NeonStateRight:
+          format: int32
+          type: integer
+        NeonStateFront:
+          format: int32
+          type: integer
+        NeonStateBack:
+          format: int32
+          type: integer
+        NeonStateColorR:
+          format: int32
+          type: integer
+        NeonStateColorG:
+          format: int32
+          type: integer
+        NeonStateColorB:
+          format: int32
+          type: integer
+        Fuel:
+          type: string
+        Repair:
+          format: int32
+          type: integer
+        Distance:
+          type: string
+        Garage:
+          format: int32
+          type: integer
+        Health:
+          format: int32
+          type: integer
+        DirtLevel:
+          type: string
+        InteriorColor:
+          format: int32
+          type: integer
+        ChipTuning:
+          format: int32
+          type: integer
+        PaintArt:
+          format: int32
+          type: integer
+        WheelColor:
+          format: int32
+          type: integer
+        WheelType:
+          format: int32
+          type: integer
+        PlateText:
+          type: string
+        Insurance:
+          type: string
+        InsuranceExpiry:
+          format: int32
+          type: integer
+      required:
+      - Armor
+      - BackWheels
+      - Brakes
+      - BuyDate
+      - CharacterID
+      - ChipTuning
+      - Color1B
+      - Color1G
+      - Color1R
+      - Color2B
+      - Color2G
+      - Color2R
+      - DialDesign
+      - DirtLevel
+      - Distance
+      - Engine
+      - Exhaust
+      - Fender
+      - Frame
+      - FrontBumper
+      - FrontWheels
+      - Fuel
+      - Garage
+      - Grille
+      - Hash
+      - Health
+      - Hood
+      - Horns
+      - Hydraulics
+      - ID
+      - Insurance
+      - InsuranceExpiry
+      - InteriorColor
+      - Livery
+      - NeonStateBack
+      - NeonStateColorB
+      - NeonStateColorG
+      - NeonStateColorR
+      - NeonStateFront
+      - NeonStateLeft
+      - NeonStateRight
+      - Ornaments
+      - PaintArt
+      - Plaques
+      - Plate
+      - PlateText
+      - Plateholders
+      - PosX
+      - PosY
+      - PosZ
+      - RearBumper
+      - Repair
+      - RightFender
+      - Roof
+      - RotX
+      - RotY
+      - RotZ
+      - ShiftLever
+      - SideSkirt
+      - Spoilers
+      - SteeringWheel
+      - Suspension
+      - Transmission
+      - TrimDesign
+      - Turbo
+      - WheelColor
+      - WheelType
+      - WindowTint
+      - Xenon
+      type: object
+    GangArea:
+      example:
+        Impact: 7
+        Owner: 9
+        LastAttack: 3
+        Amount: 4
+        Range: 2
+        Rotation: 7
+        ItemID: 2
+        Name: Name
+        DistriktID: 6
+        X: 1.4658129
+        "Y": 5.962134
+        Z: 5.637377
+        ID: 0
+        OldOwner: 1
+      properties:
+        ID:
+          format: int32
+          type: integer
+        DistriktID:
+          format: int32
+          type: integer
+        Name:
+          type: string
+        X:
+          format: float
+          type: number
+        "Y":
+          format: float
+          type: number
+        Z:
+          format: float
+          type: number
+        Range:
+          format: int32
+          type: integer
+        Rotation:
+          format: int32
+          type: integer
+        Owner:
+          format: int32
+          type: integer
+        LastAttack:
+          format: int32
+          type: integer
+        ItemID:
+          format: int32
+          type: integer
+        Amount:
+          format: int32
+          type: integer
+        Impact:
+          format: int32
+          type: integer
+        OldOwner:
+          format: int32
+          type: integer
+      required:
+      - Amount
+      - DistriktID
+      - ID
+      - Impact
+      - ItemID
+      - LastAttack
+      - Name
+      - OldOwner
+      - Owner
+      - Range
+      - Rotation
+      - X
+      - "Y"
+      - Z
+      type: object
+    CharacterPlaytime:
+      example:
+        ID: 0
+        Timestamp: 6
+        Minutes: 1
+      properties:
+        ID:
+          format: int32
+          type: integer
+        Timestamp:
+          format: int64
+          type: integer
+        Minutes:
+          format: int32
+          type: integer
+      type: object
+    CharacterBankLog:
+      example:
+        CharacterID: 0
+        Amount: Amount
+        Info1: Info1
+        Info: Info
+        Timestamp: 6
+        Reason: Reason
+      properties:
+        CharacterID:
+          format: int55
+          type: integer
+        Timestamp:
+          format: int55
+          type: integer
+        Amount:
+          maxLength: 22
+          type: string
+        Reason:
+          maxLength: 55
+          type: string
+        Info:
+          maxLength: 55
+          type: string
+        Info1:
+          maxLength: 55
+          type: string
+      type: object
+    SystemGroupWar:
+      example:
+        ID: ID
+        Deathmatch: Deathmatch
+        EndGameTimestamp: 0
+      properties:
+        ID:
+          maxLength: 55
+          type: string
+        Deathmatch:
+          type: string
+        EndGameTimestamp:
+          format: int22
+          type: integer
+      type: object
+    InventoryItem:
+      example:
+        item: 0
+        amount: 39424
+        meta: "{}"
+        maxWeight: 200
+        title: Inventar
+        maxCount: 90
+      properties:
+        title:
+          description: The title or category of the inventory.
+          example: Inventar
+          type: string
+        maxWeight:
+          description: Maximum weight capacity allowed for this inventory.
+          example: 200
+          type: number
+        maxCount:
+          description: Maximum number of items allowed.
+          example: 90
+          type: integer
+        item:
+          description: Identifier of the item type.
+          example: 0
+          type: integer
+        amount:
+          description: The quantity of this item currently held.
+          example: 39424
+          type: integer
+        meta:
+          description: "Additional metadata about the item, if any."
+          nullable: true
+          type: object
+          example: null
+      required:
+      - amount
+      - item
+      - maxCount
+      - maxWeight
+      - title
+      type: object
+    InventoryResponse:
+      description: A list of inventory entries.
+      items:
+        $ref: "#/components/schemas/InventoryItem"
+      type: array
+  securitySchemes:
+    vio_auth:
+      flows:
+        authorizationCode:
+          authorizationUrl: /api/oauth2/authorize
+          scopes:
+            read.self: read character data
+            read.group: read group data
+            read.company: read company data
+          tokenUrl: /api/oauth2/token
+        clientCredentials:
+          scopes:
+            read.self: read character data
+            read.group: read group data
+            read.company: read company data
+          tokenUrl: /api/oauth2/token
+      type: oauth2
