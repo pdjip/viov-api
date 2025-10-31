@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -53,7 +52,4 @@ model_system_group_war.go
 model_system_item.go
 model_vehicle.go
 response.go
-test/api_group_test.go
-test/api_own_test.go
-test/api_system_test.go
 utils.go

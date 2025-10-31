@@ -31,8 +31,8 @@ type InventoryItem struct {
 	Item int32 `json:"item"`
 	// The quantity of this item currently held.
 	Amount int32 `json:"amount"`
-	// Additional metadata about the item, if any.
-	Meta map[string]interface{} `json:"meta,omitempty"`
+	// JSON meta data
+	Meta NullableString `json:"meta,omitempty"`
 }
 
 type _InventoryItem InventoryItem
@@ -180,36 +180,45 @@ func (o *InventoryItem) SetAmount(v int32) {
 }
 
 // GetMeta returns the Meta field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *InventoryItem) GetMeta() map[string]interface{} {
-	if o == nil {
-		var ret map[string]interface{}
+func (o *InventoryItem) GetMeta() string {
+	if o == nil || IsNil(o.Meta.Get()) {
+		var ret string
 		return ret
 	}
-	return o.Meta
+	return *o.Meta.Get()
 }
 
 // GetMetaOk returns a tuple with the Meta field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *InventoryItem) GetMetaOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.Meta) {
-		return map[string]interface{}{}, false
+func (o *InventoryItem) GetMetaOk() (*string, bool) {
+	if o == nil {
+		return nil, false
 	}
-	return o.Meta, true
+	return o.Meta.Get(), o.Meta.IsSet()
 }
 
 // HasMeta returns a boolean if a field has been set.
 func (o *InventoryItem) HasMeta() bool {
-	if o != nil && !IsNil(o.Meta) {
+	if o != nil && o.Meta.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetMeta gets a reference to the given map[string]interface{} and assigns it to the Meta field.
-func (o *InventoryItem) SetMeta(v map[string]interface{}) {
-	o.Meta = v
+// SetMeta gets a reference to the given NullableString and assigns it to the Meta field.
+func (o *InventoryItem) SetMeta(v string) {
+	o.Meta.Set(&v)
+}
+// SetMetaNil sets the value for Meta to be an explicit nil
+func (o *InventoryItem) SetMetaNil() {
+	o.Meta.Set(nil)
+}
+
+// UnsetMeta ensures that no value is present for Meta, not even an explicit nil
+func (o *InventoryItem) UnsetMeta() {
+	o.Meta.Unset()
 }
 
 func (o InventoryItem) MarshalJSON() ([]byte, error) {
@@ -227,8 +236,8 @@ func (o InventoryItem) ToMap() (map[string]interface{}, error) {
 	toSerialize["maxCount"] = o.MaxCount
 	toSerialize["item"] = o.Item
 	toSerialize["amount"] = o.Amount
-	if o.Meta != nil {
-		toSerialize["meta"] = o.Meta
+	if o.Meta.IsSet() {
+		toSerialize["meta"] = o.Meta.Get()
 	}
 	return toSerialize, nil
 }

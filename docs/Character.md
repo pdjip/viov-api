@@ -4,55 +4,63 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ID** | Pointer to **int32** |  | [optional] 
+**ID** | **int32** |  | 
 **AccountID** | **int32** |  | 
 **Name** | **string** |  | 
-**Playingtime** | Pointer to **int32** |  | [optional] 
+**Playingtime** | **int32** |  | 
 **Gender** | **int32** |  | 
 **STVO** | **int32** |  | 
 **VehicleLimit** | **int32** |  | 
-**BusExp** | Pointer to **int32** |  | [optional] 
-**Spawn** | Pointer to **string** |  | [optional] 
-**SpawnID** | Pointer to **int32** |  | [optional] 
-**Wanteds** | Pointer to **int32** |  | [optional] 
-**JailTime** | Pointer to **int32** |  | [optional] 
-**MethTime** | Pointer to **int32** |  | [optional] 
-**WeaponLicenseA** | Pointer to **int32** |  | [optional] 
-**WeaponLicenseB** | Pointer to **int32** |  | [optional] 
-**WeaponLicenseC** | Pointer to **int32** |  | [optional] 
-**ActivityTimestamp** | Pointer to **int32** |  | [optional] 
+**BusExp** | **int32** |  | 
+**Spawn** | **string** |  | 
+**SpawnID** | **int32** |  | 
+**Wanteds** | **int32** |  | 
+**JailTime** | **int32** |  | 
+**MethTime** | **int32** |  | 
+**WeaponLicenseA** | **int32** |  | 
+**WeaponLicenseB** | **int32** |  | 
+**WeaponLicenseC** | **int32** |  | 
+**ActivityTimestamp** | **int32** |  | 
 **QuestID** | **string** |  | 
-**QuestStatus** | Pointer to **int32** |  | [optional] 
-**PhoneNumber** | Pointer to **int32** |  | [optional] 
-**FactionTime** | Pointer to **int32** |  | [optional] 
-**Grade** | Pointer to **float64** |  | [optional] 
-**Raiting** | **int32** |  | 
-**DrivingLicenseA** | Pointer to **int32** |  | [optional] 
+**QuestStatus** | **int32** |  | 
+**PhoneNumber** | **int32** |  | 
+**FactionTime** | **int32** |  | 
+**Grade** | **float64** |  | 
+**Raiting** | **float64** |  | 
+**DrivingLicenseA** | **int32** |  | 
 **FoodStatus** | **int32** |  | 
 **ActivityStep** | **int32** |  | 
-**DrivingLicensesBlockedTimestamp** | Pointer to **int32** |  | [optional] 
-**WantedArchiv** | Pointer to **string** |  | [optional] 
-**Skin** | Pointer to **string** |  | [optional] 
-**Skills** | Pointer to **string** |  | [optional] 
-**DailyQuests** | Pointer to **string** |  | [optional] 
-**BonusVehicleLimit** | Pointer to **int32** |  | [optional] 
-**Accessory** | Pointer to **string** |  | [optional] 
-**Achievements** | Pointer to **string** |  | [optional] 
-**TotalStatus** | Pointer to **string** |  | [optional] 
-**ActiveStatus** | Pointer to **string** |  | [optional] 
-**SkillPoints** | Pointer to **string** |  | [optional] 
-**SkillBranches** | Pointer to **string** |  | [optional] 
+**DrivingLicensesBlockedTimestamp** | **int32** |  | 
+**WantedArchiv** | **string** |  | 
+**Skin** | **string** |  | 
+**Skills** | **string** |  | 
+**DailyQuests** | **string** |  | 
+**BonusVehicleLimit** | **int32** |  | 
+**Accessory** | **string** |  | 
+**Achievements** | **string** |  | 
+**TotalStatus** | **string** |  | 
+**ActiveStatus** | **string** |  | 
+**SkillPoints** | **string** |  | 
+**SkillBranches** | **string** |  | 
 **SkillSync** | **int32** |  | 
-**ExpBoost** | Pointer to **int32** |  | [optional] 
-**Tattoos** | Pointer to **string** |  | [optional] 
-**Licenses** | Pointer to **string** |  | [optional] 
-**DailyBonus** | Pointer to **string** |  | [optional] 
+**Boosts** | **string** |  | 
+**Tattoos** | **string** |  | 
+**Licenses** | **string** |  | 
+**DailyBonus** | **string** |  | 
+**SeasonPass** | **string** |  | 
+**SeasonPassPoints** | **float64** |  | 
+**SeasonPassPremium** | **int32** |  | 
+**WeaponsSkins** | **string** |  | 
+**VehiclesSkins** | **string** |  | 
+**HalloweenCount** | **int32** |  | 
+**LoginTimestamp** | **int32** |  | 
+**RegisterTimestamp** | **time.Time** |  | 
 
 ## Methods
 
 ### NewCharacter
 
-`func NewCharacter(accountID int32, name string, gender int32, sTVO int32, vehicleLimit int32, questID string, raiting int32, foodStatus int32, activityStep int32, skillSync int32, ) *Character`
+`func NewCharacter(iD int32, accountID int32, name string, playingtime int32, gender int32, sTVO int32, vehicleLimit int32, busExp int32, spawn string, spawnID int32, wanteds int32, jailTime int32, methTime int32, weaponLicenseA int32, weaponLicenseB int32, weaponLicenseC int32, activityTimestamp int32, questID string, questStatus int32, phoneNumber int32, factionTime int32, grade float64, raiting float64, drivingLicenseA int32, foodStatus int32, activityStep int32, drivingLicensesBlockedTimestamp int32, wantedArchiv string, skin string, skills string, dailyQuests string, bonusVehicleLimit int32, accessory string, achievements string, totalStatus string, activeStatus string, skillPoints string, skillBranches string, skillSync int32, boosts string, tattoos string, licenses string, dailyBonus string, seasonPass string, seasonPassPoints float64, seasonPassPremium int32, weaponsSkins string, vehiclesSkins string, halloweenCount int32, loginTimestamp int32, registerTimestamp time.Time, ) *Character`
 
 NewCharacter instantiates a new Character object
 This constructor will assign default values to properties that have it defined,
@@ -86,11 +94,6 @@ and a boolean to check if the value has been set.
 
 SetID sets ID field to given value.
 
-### HasID
-
-`func (o *Character) HasID() bool`
-
-HasID returns a boolean if a field has been set.
 
 ### GetAccountID
 
@@ -151,11 +154,6 @@ and a boolean to check if the value has been set.
 
 SetPlayingtime sets Playingtime field to given value.
 
-### HasPlayingtime
-
-`func (o *Character) HasPlayingtime() bool`
-
-HasPlayingtime returns a boolean if a field has been set.
 
 ### GetGender
 
@@ -236,11 +234,6 @@ and a boolean to check if the value has been set.
 
 SetBusExp sets BusExp field to given value.
 
-### HasBusExp
-
-`func (o *Character) HasBusExp() bool`
-
-HasBusExp returns a boolean if a field has been set.
 
 ### GetSpawn
 
@@ -261,11 +254,6 @@ and a boolean to check if the value has been set.
 
 SetSpawn sets Spawn field to given value.
 
-### HasSpawn
-
-`func (o *Character) HasSpawn() bool`
-
-HasSpawn returns a boolean if a field has been set.
 
 ### GetSpawnID
 
@@ -286,11 +274,6 @@ and a boolean to check if the value has been set.
 
 SetSpawnID sets SpawnID field to given value.
 
-### HasSpawnID
-
-`func (o *Character) HasSpawnID() bool`
-
-HasSpawnID returns a boolean if a field has been set.
 
 ### GetWanteds
 
@@ -311,11 +294,6 @@ and a boolean to check if the value has been set.
 
 SetWanteds sets Wanteds field to given value.
 
-### HasWanteds
-
-`func (o *Character) HasWanteds() bool`
-
-HasWanteds returns a boolean if a field has been set.
 
 ### GetJailTime
 
@@ -336,11 +314,6 @@ and a boolean to check if the value has been set.
 
 SetJailTime sets JailTime field to given value.
 
-### HasJailTime
-
-`func (o *Character) HasJailTime() bool`
-
-HasJailTime returns a boolean if a field has been set.
 
 ### GetMethTime
 
@@ -361,11 +334,6 @@ and a boolean to check if the value has been set.
 
 SetMethTime sets MethTime field to given value.
 
-### HasMethTime
-
-`func (o *Character) HasMethTime() bool`
-
-HasMethTime returns a boolean if a field has been set.
 
 ### GetWeaponLicenseA
 
@@ -386,11 +354,6 @@ and a boolean to check if the value has been set.
 
 SetWeaponLicenseA sets WeaponLicenseA field to given value.
 
-### HasWeaponLicenseA
-
-`func (o *Character) HasWeaponLicenseA() bool`
-
-HasWeaponLicenseA returns a boolean if a field has been set.
 
 ### GetWeaponLicenseB
 
@@ -411,11 +374,6 @@ and a boolean to check if the value has been set.
 
 SetWeaponLicenseB sets WeaponLicenseB field to given value.
 
-### HasWeaponLicenseB
-
-`func (o *Character) HasWeaponLicenseB() bool`
-
-HasWeaponLicenseB returns a boolean if a field has been set.
 
 ### GetWeaponLicenseC
 
@@ -436,11 +394,6 @@ and a boolean to check if the value has been set.
 
 SetWeaponLicenseC sets WeaponLicenseC field to given value.
 
-### HasWeaponLicenseC
-
-`func (o *Character) HasWeaponLicenseC() bool`
-
-HasWeaponLicenseC returns a boolean if a field has been set.
 
 ### GetActivityTimestamp
 
@@ -461,11 +414,6 @@ and a boolean to check if the value has been set.
 
 SetActivityTimestamp sets ActivityTimestamp field to given value.
 
-### HasActivityTimestamp
-
-`func (o *Character) HasActivityTimestamp() bool`
-
-HasActivityTimestamp returns a boolean if a field has been set.
 
 ### GetQuestID
 
@@ -506,11 +454,6 @@ and a boolean to check if the value has been set.
 
 SetQuestStatus sets QuestStatus field to given value.
 
-### HasQuestStatus
-
-`func (o *Character) HasQuestStatus() bool`
-
-HasQuestStatus returns a boolean if a field has been set.
 
 ### GetPhoneNumber
 
@@ -531,11 +474,6 @@ and a boolean to check if the value has been set.
 
 SetPhoneNumber sets PhoneNumber field to given value.
 
-### HasPhoneNumber
-
-`func (o *Character) HasPhoneNumber() bool`
-
-HasPhoneNumber returns a boolean if a field has been set.
 
 ### GetFactionTime
 
@@ -556,11 +494,6 @@ and a boolean to check if the value has been set.
 
 SetFactionTime sets FactionTime field to given value.
 
-### HasFactionTime
-
-`func (o *Character) HasFactionTime() bool`
-
-HasFactionTime returns a boolean if a field has been set.
 
 ### GetGrade
 
@@ -581,28 +514,23 @@ and a boolean to check if the value has been set.
 
 SetGrade sets Grade field to given value.
 
-### HasGrade
-
-`func (o *Character) HasGrade() bool`
-
-HasGrade returns a boolean if a field has been set.
 
 ### GetRaiting
 
-`func (o *Character) GetRaiting() int32`
+`func (o *Character) GetRaiting() float64`
 
 GetRaiting returns the Raiting field if non-nil, zero value otherwise.
 
 ### GetRaitingOk
 
-`func (o *Character) GetRaitingOk() (*int32, bool)`
+`func (o *Character) GetRaitingOk() (*float64, bool)`
 
 GetRaitingOk returns a tuple with the Raiting field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRaiting
 
-`func (o *Character) SetRaiting(v int32)`
+`func (o *Character) SetRaiting(v float64)`
 
 SetRaiting sets Raiting field to given value.
 
@@ -626,11 +554,6 @@ and a boolean to check if the value has been set.
 
 SetDrivingLicenseA sets DrivingLicenseA field to given value.
 
-### HasDrivingLicenseA
-
-`func (o *Character) HasDrivingLicenseA() bool`
-
-HasDrivingLicenseA returns a boolean if a field has been set.
 
 ### GetFoodStatus
 
@@ -691,11 +614,6 @@ and a boolean to check if the value has been set.
 
 SetDrivingLicensesBlockedTimestamp sets DrivingLicensesBlockedTimestamp field to given value.
 
-### HasDrivingLicensesBlockedTimestamp
-
-`func (o *Character) HasDrivingLicensesBlockedTimestamp() bool`
-
-HasDrivingLicensesBlockedTimestamp returns a boolean if a field has been set.
 
 ### GetWantedArchiv
 
@@ -716,11 +634,6 @@ and a boolean to check if the value has been set.
 
 SetWantedArchiv sets WantedArchiv field to given value.
 
-### HasWantedArchiv
-
-`func (o *Character) HasWantedArchiv() bool`
-
-HasWantedArchiv returns a boolean if a field has been set.
 
 ### GetSkin
 
@@ -741,11 +654,6 @@ and a boolean to check if the value has been set.
 
 SetSkin sets Skin field to given value.
 
-### HasSkin
-
-`func (o *Character) HasSkin() bool`
-
-HasSkin returns a boolean if a field has been set.
 
 ### GetSkills
 
@@ -766,11 +674,6 @@ and a boolean to check if the value has been set.
 
 SetSkills sets Skills field to given value.
 
-### HasSkills
-
-`func (o *Character) HasSkills() bool`
-
-HasSkills returns a boolean if a field has been set.
 
 ### GetDailyQuests
 
@@ -791,11 +694,6 @@ and a boolean to check if the value has been set.
 
 SetDailyQuests sets DailyQuests field to given value.
 
-### HasDailyQuests
-
-`func (o *Character) HasDailyQuests() bool`
-
-HasDailyQuests returns a boolean if a field has been set.
 
 ### GetBonusVehicleLimit
 
@@ -816,11 +714,6 @@ and a boolean to check if the value has been set.
 
 SetBonusVehicleLimit sets BonusVehicleLimit field to given value.
 
-### HasBonusVehicleLimit
-
-`func (o *Character) HasBonusVehicleLimit() bool`
-
-HasBonusVehicleLimit returns a boolean if a field has been set.
 
 ### GetAccessory
 
@@ -841,11 +734,6 @@ and a boolean to check if the value has been set.
 
 SetAccessory sets Accessory field to given value.
 
-### HasAccessory
-
-`func (o *Character) HasAccessory() bool`
-
-HasAccessory returns a boolean if a field has been set.
 
 ### GetAchievements
 
@@ -866,11 +754,6 @@ and a boolean to check if the value has been set.
 
 SetAchievements sets Achievements field to given value.
 
-### HasAchievements
-
-`func (o *Character) HasAchievements() bool`
-
-HasAchievements returns a boolean if a field has been set.
 
 ### GetTotalStatus
 
@@ -891,11 +774,6 @@ and a boolean to check if the value has been set.
 
 SetTotalStatus sets TotalStatus field to given value.
 
-### HasTotalStatus
-
-`func (o *Character) HasTotalStatus() bool`
-
-HasTotalStatus returns a boolean if a field has been set.
 
 ### GetActiveStatus
 
@@ -916,11 +794,6 @@ and a boolean to check if the value has been set.
 
 SetActiveStatus sets ActiveStatus field to given value.
 
-### HasActiveStatus
-
-`func (o *Character) HasActiveStatus() bool`
-
-HasActiveStatus returns a boolean if a field has been set.
 
 ### GetSkillPoints
 
@@ -941,11 +814,6 @@ and a boolean to check if the value has been set.
 
 SetSkillPoints sets SkillPoints field to given value.
 
-### HasSkillPoints
-
-`func (o *Character) HasSkillPoints() bool`
-
-HasSkillPoints returns a boolean if a field has been set.
 
 ### GetSkillBranches
 
@@ -966,11 +834,6 @@ and a boolean to check if the value has been set.
 
 SetSkillBranches sets SkillBranches field to given value.
 
-### HasSkillBranches
-
-`func (o *Character) HasSkillBranches() bool`
-
-HasSkillBranches returns a boolean if a field has been set.
 
 ### GetSkillSync
 
@@ -992,30 +855,25 @@ and a boolean to check if the value has been set.
 SetSkillSync sets SkillSync field to given value.
 
 
-### GetExpBoost
+### GetBoosts
 
-`func (o *Character) GetExpBoost() int32`
+`func (o *Character) GetBoosts() string`
 
-GetExpBoost returns the ExpBoost field if non-nil, zero value otherwise.
+GetBoosts returns the Boosts field if non-nil, zero value otherwise.
 
-### GetExpBoostOk
+### GetBoostsOk
 
-`func (o *Character) GetExpBoostOk() (*int32, bool)`
+`func (o *Character) GetBoostsOk() (*string, bool)`
 
-GetExpBoostOk returns a tuple with the ExpBoost field if it's non-nil, zero value otherwise
+GetBoostsOk returns a tuple with the Boosts field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetExpBoost
+### SetBoosts
 
-`func (o *Character) SetExpBoost(v int32)`
+`func (o *Character) SetBoosts(v string)`
 
-SetExpBoost sets ExpBoost field to given value.
+SetBoosts sets Boosts field to given value.
 
-### HasExpBoost
-
-`func (o *Character) HasExpBoost() bool`
-
-HasExpBoost returns a boolean if a field has been set.
 
 ### GetTattoos
 
@@ -1036,11 +894,6 @@ and a boolean to check if the value has been set.
 
 SetTattoos sets Tattoos field to given value.
 
-### HasTattoos
-
-`func (o *Character) HasTattoos() bool`
-
-HasTattoos returns a boolean if a field has been set.
 
 ### GetLicenses
 
@@ -1061,11 +914,6 @@ and a boolean to check if the value has been set.
 
 SetLicenses sets Licenses field to given value.
 
-### HasLicenses
-
-`func (o *Character) HasLicenses() bool`
-
-HasLicenses returns a boolean if a field has been set.
 
 ### GetDailyBonus
 
@@ -1086,11 +934,166 @@ and a boolean to check if the value has been set.
 
 SetDailyBonus sets DailyBonus field to given value.
 
-### HasDailyBonus
 
-`func (o *Character) HasDailyBonus() bool`
+### GetSeasonPass
 
-HasDailyBonus returns a boolean if a field has been set.
+`func (o *Character) GetSeasonPass() string`
+
+GetSeasonPass returns the SeasonPass field if non-nil, zero value otherwise.
+
+### GetSeasonPassOk
+
+`func (o *Character) GetSeasonPassOk() (*string, bool)`
+
+GetSeasonPassOk returns a tuple with the SeasonPass field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSeasonPass
+
+`func (o *Character) SetSeasonPass(v string)`
+
+SetSeasonPass sets SeasonPass field to given value.
+
+
+### GetSeasonPassPoints
+
+`func (o *Character) GetSeasonPassPoints() float64`
+
+GetSeasonPassPoints returns the SeasonPassPoints field if non-nil, zero value otherwise.
+
+### GetSeasonPassPointsOk
+
+`func (o *Character) GetSeasonPassPointsOk() (*float64, bool)`
+
+GetSeasonPassPointsOk returns a tuple with the SeasonPassPoints field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSeasonPassPoints
+
+`func (o *Character) SetSeasonPassPoints(v float64)`
+
+SetSeasonPassPoints sets SeasonPassPoints field to given value.
+
+
+### GetSeasonPassPremium
+
+`func (o *Character) GetSeasonPassPremium() int32`
+
+GetSeasonPassPremium returns the SeasonPassPremium field if non-nil, zero value otherwise.
+
+### GetSeasonPassPremiumOk
+
+`func (o *Character) GetSeasonPassPremiumOk() (*int32, bool)`
+
+GetSeasonPassPremiumOk returns a tuple with the SeasonPassPremium field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSeasonPassPremium
+
+`func (o *Character) SetSeasonPassPremium(v int32)`
+
+SetSeasonPassPremium sets SeasonPassPremium field to given value.
+
+
+### GetWeaponsSkins
+
+`func (o *Character) GetWeaponsSkins() string`
+
+GetWeaponsSkins returns the WeaponsSkins field if non-nil, zero value otherwise.
+
+### GetWeaponsSkinsOk
+
+`func (o *Character) GetWeaponsSkinsOk() (*string, bool)`
+
+GetWeaponsSkinsOk returns a tuple with the WeaponsSkins field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWeaponsSkins
+
+`func (o *Character) SetWeaponsSkins(v string)`
+
+SetWeaponsSkins sets WeaponsSkins field to given value.
+
+
+### GetVehiclesSkins
+
+`func (o *Character) GetVehiclesSkins() string`
+
+GetVehiclesSkins returns the VehiclesSkins field if non-nil, zero value otherwise.
+
+### GetVehiclesSkinsOk
+
+`func (o *Character) GetVehiclesSkinsOk() (*string, bool)`
+
+GetVehiclesSkinsOk returns a tuple with the VehiclesSkins field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVehiclesSkins
+
+`func (o *Character) SetVehiclesSkins(v string)`
+
+SetVehiclesSkins sets VehiclesSkins field to given value.
+
+
+### GetHalloweenCount
+
+`func (o *Character) GetHalloweenCount() int32`
+
+GetHalloweenCount returns the HalloweenCount field if non-nil, zero value otherwise.
+
+### GetHalloweenCountOk
+
+`func (o *Character) GetHalloweenCountOk() (*int32, bool)`
+
+GetHalloweenCountOk returns a tuple with the HalloweenCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHalloweenCount
+
+`func (o *Character) SetHalloweenCount(v int32)`
+
+SetHalloweenCount sets HalloweenCount field to given value.
+
+
+### GetLoginTimestamp
+
+`func (o *Character) GetLoginTimestamp() int32`
+
+GetLoginTimestamp returns the LoginTimestamp field if non-nil, zero value otherwise.
+
+### GetLoginTimestampOk
+
+`func (o *Character) GetLoginTimestampOk() (*int32, bool)`
+
+GetLoginTimestampOk returns a tuple with the LoginTimestamp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLoginTimestamp
+
+`func (o *Character) SetLoginTimestamp(v int32)`
+
+SetLoginTimestamp sets LoginTimestamp field to given value.
+
+
+### GetRegisterTimestamp
+
+`func (o *Character) GetRegisterTimestamp() time.Time`
+
+GetRegisterTimestamp returns the RegisterTimestamp field if non-nil, zero value otherwise.
+
+### GetRegisterTimestampOk
+
+`func (o *Character) GetRegisterTimestampOk() (*time.Time, bool)`
+
+GetRegisterTimestampOk returns a tuple with the RegisterTimestamp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegisterTimestamp
+
+`func (o *Character) SetRegisterTimestamp(v time.Time)`
+
+SetRegisterTimestamp sets RegisterTimestamp field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

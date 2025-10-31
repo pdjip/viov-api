@@ -1081,49 +1081,57 @@ components:
       type: object
     Character:
       example:
+        VehiclesSkins: VehiclesSkins
+        HalloweenCount: 1
         FactionTime: 1
-        BonusVehicleLimit: 9
         Licenses: Licenses
         Gender: 5
         Wanteds: 3
-        SkillSync: 6
         Tattoos: Tattoos
-        QuestStatus: 6
         Playingtime: 1
         Name: Name
         WantedArchiv: WantedArchiv
         ActiveStatus: ActiveStatus
         Accessory: Accessory
-        WeaponLicenseB: 1
-        WeaponLicenseA: 7
         FoodStatus: 9
-        Skills: Skills
-        WeaponLicenseC: 1
-        BusExp: 7
         QuestID: QuestID
         SkillBranches: SkillBranches
         ID: 0
         DailyBonus: DailyBonus
-        DrivingLicensesBlockedTimestamp: 8
         Spawn: Spawn
-        AccountID: 6
-        SpawnID: 9
-        DailyQuests: DailyQuests
-        ActivityTimestamp: 1
+        SeasonPass: SeasonPass
+        Boosts: Boosts
+        RegisterTimestamp: 2000-01-23T04:56:07.000+00:00
         Grade: 4.965218492984954
-        Raiting: 5
-        DrivingLicenseA: 9
+        Raiting: 5.025004791520295
         SkillPoints: SkillPoints
         VehicleLimit: 2
         Achievements: Achievements
-        ExpBoost: 3
+        Skin: Skin
+        TotalStatus: TotalStatus
+        JailTime: 2
+        BonusVehicleLimit: 9
+        SkillSync: 6
+        QuestStatus: 6
+        WeaponLicenseB: 1
+        WeaponLicenseA: 7
+        Skills: Skills
+        WeaponLicenseC: 1
+        BusExp: 7
+        DrivingLicensesBlockedTimestamp: 8
+        AccountID: 6
+        SpawnID: 9
+        DailyQuests: DailyQuests
+        SeasonPassPoints: 3.5571952270680973
+        ActivityTimestamp: 1
+        DrivingLicenseA: 9
+        WeaponsSkins: WeaponsSkins
+        SeasonPassPremium: 6
+        LoginTimestamp: 2
         PhoneNumber: 7
         MethTime: 4
-        Skin: Skin
         ActivityStep: 6
-        TotalStatus: TotalStatus
         STVO: 5
-        JailTime: 2
       properties:
         ID:
           format: int32
@@ -1189,8 +1197,8 @@ components:
           format: double
           type: number
         Raiting:
-          format: int32
-          type: integer
+          format: double
+          type: number
         DrivingLicenseA:
           format: int32
           type: integer
@@ -1229,26 +1237,87 @@ components:
         SkillSync:
           format: int32
           type: integer
-        ExpBoost:
-          format: int32
-          type: integer
+        Boosts:
+          type: string
         Tattoos:
           type: string
         Licenses:
           type: string
         DailyBonus:
           type: string
+        SeasonPass:
+          type: string
+        SeasonPassPoints:
+          format: double
+          type: number
+        SeasonPassPremium:
+          format: int32
+          type: integer
+        WeaponsSkins:
+          type: string
+        VehiclesSkins:
+          type: string
+        HalloweenCount:
+          format: int32
+          type: integer
+        LoginTimestamp:
+          format: int32
+          type: integer
+        RegisterTimestamp:
+          format: date-time
+          type: string
       required:
+      - Accessory
       - AccountID
+      - Achievements
+      - ActiveStatus
       - ActivityStep
+      - ActivityTimestamp
+      - BonusVehicleLimit
+      - Boosts
+      - BusExp
+      - DailyBonus
+      - DailyQuests
+      - DrivingLicenseA
+      - DrivingLicensesBlockedTimestamp
+      - FactionTime
       - FoodStatus
       - Gender
+      - Grade
+      - HalloweenCount
+      - ID
+      - JailTime
+      - Licenses
+      - LoginTimestamp
+      - MethTime
       - Name
+      - PhoneNumber
+      - Playingtime
       - QuestID
+      - QuestStatus
       - Raiting
+      - RegisterTimestamp
       - STVO
+      - SeasonPass
+      - SeasonPassPoints
+      - SeasonPassPremium
+      - SkillBranches
+      - SkillPoints
       - SkillSync
+      - Skills
+      - Skin
+      - Spawn
+      - SpawnID
+      - Tattoos
+      - TotalStatus
       - VehicleLimit
+      - VehiclesSkins
+      - WantedArchiv
+      - Wanteds
+      - WeaponLicenseA
+      - WeaponLicenseB
+      - WeaponLicenseC
+      - WeaponsSkins
       type: object
     SystemItem:
       example:
@@ -1741,10 +1810,10 @@ components:
           example: 39424
           type: integer
         meta:
-          description: "Additional metadata about the item, if any."
+          description: JSON meta data
+          example: "{}"
           nullable: true
-          type: object
-          example: null
+          type: string
       required:
       - amount
       - item

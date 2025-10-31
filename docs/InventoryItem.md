@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **MaxCount** | **int32** | Maximum number of items allowed. | 
 **Item** | **int32** | Identifier of the item type. | 
 **Amount** | **int32** | The quantity of this item currently held. | 
-**Meta** | Pointer to **map[string]interface{}** | Additional metadata about the item, if any. | [optional] 
+**Meta** | Pointer to **NullableString** | JSON meta data | [optional] 
 
 ## Methods
 
@@ -132,20 +132,20 @@ SetAmount sets Amount field to given value.
 
 ### GetMeta
 
-`func (o *InventoryItem) GetMeta() map[string]interface{}`
+`func (o *InventoryItem) GetMeta() string`
 
 GetMeta returns the Meta field if non-nil, zero value otherwise.
 
 ### GetMetaOk
 
-`func (o *InventoryItem) GetMetaOk() (*map[string]interface{}, bool)`
+`func (o *InventoryItem) GetMetaOk() (*string, bool)`
 
 GetMetaOk returns a tuple with the Meta field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMeta
 
-`func (o *InventoryItem) SetMeta(v map[string]interface{})`
+`func (o *InventoryItem) SetMeta(v string)`
 
 SetMeta sets Meta field to given value.
 

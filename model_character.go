@@ -12,6 +12,7 @@ package openapi
 
 import (
 	"encoding/json"
+	"time"
 	"bytes"
 	"fmt"
 )
@@ -21,49 +22,57 @@ var _ MappedNullable = &Character{}
 
 // Character struct for Character
 type Character struct {
-	ID *int32 `json:"ID,omitempty"`
+	ID int32 `json:"ID"`
 	AccountID int32 `json:"AccountID"`
 	Name string `json:"Name"`
-	Playingtime *int32 `json:"Playingtime,omitempty"`
+	Playingtime int32 `json:"Playingtime"`
 	Gender int32 `json:"Gender"`
 	STVO int32 `json:"STVO"`
 	VehicleLimit int32 `json:"VehicleLimit"`
-	BusExp *int32 `json:"BusExp,omitempty"`
-	Spawn *string `json:"Spawn,omitempty"`
-	SpawnID *int32 `json:"SpawnID,omitempty"`
-	Wanteds *int32 `json:"Wanteds,omitempty"`
-	JailTime *int32 `json:"JailTime,omitempty"`
-	MethTime *int32 `json:"MethTime,omitempty"`
-	WeaponLicenseA *int32 `json:"WeaponLicenseA,omitempty"`
-	WeaponLicenseB *int32 `json:"WeaponLicenseB,omitempty"`
-	WeaponLicenseC *int32 `json:"WeaponLicenseC,omitempty"`
-	ActivityTimestamp *int32 `json:"ActivityTimestamp,omitempty"`
+	BusExp int32 `json:"BusExp"`
+	Spawn string `json:"Spawn"`
+	SpawnID int32 `json:"SpawnID"`
+	Wanteds int32 `json:"Wanteds"`
+	JailTime int32 `json:"JailTime"`
+	MethTime int32 `json:"MethTime"`
+	WeaponLicenseA int32 `json:"WeaponLicenseA"`
+	WeaponLicenseB int32 `json:"WeaponLicenseB"`
+	WeaponLicenseC int32 `json:"WeaponLicenseC"`
+	ActivityTimestamp int32 `json:"ActivityTimestamp"`
 	QuestID string `json:"QuestID"`
-	QuestStatus *int32 `json:"QuestStatus,omitempty"`
-	PhoneNumber *int32 `json:"PhoneNumber,omitempty"`
-	FactionTime *int32 `json:"FactionTime,omitempty"`
-	Grade *float64 `json:"Grade,omitempty"`
-	Raiting int32 `json:"Raiting"`
-	DrivingLicenseA *int32 `json:"DrivingLicenseA,omitempty"`
+	QuestStatus int32 `json:"QuestStatus"`
+	PhoneNumber int32 `json:"PhoneNumber"`
+	FactionTime int32 `json:"FactionTime"`
+	Grade float64 `json:"Grade"`
+	Raiting float64 `json:"Raiting"`
+	DrivingLicenseA int32 `json:"DrivingLicenseA"`
 	FoodStatus int32 `json:"FoodStatus"`
 	ActivityStep int32 `json:"ActivityStep"`
-	DrivingLicensesBlockedTimestamp *int32 `json:"DrivingLicensesBlockedTimestamp,omitempty"`
-	WantedArchiv *string `json:"WantedArchiv,omitempty"`
-	Skin *string `json:"Skin,omitempty"`
-	Skills *string `json:"Skills,omitempty"`
-	DailyQuests *string `json:"DailyQuests,omitempty"`
-	BonusVehicleLimit *int32 `json:"BonusVehicleLimit,omitempty"`
-	Accessory *string `json:"Accessory,omitempty"`
-	Achievements *string `json:"Achievements,omitempty"`
-	TotalStatus *string `json:"TotalStatus,omitempty"`
-	ActiveStatus *string `json:"ActiveStatus,omitempty"`
-	SkillPoints *string `json:"SkillPoints,omitempty"`
-	SkillBranches *string `json:"SkillBranches,omitempty"`
+	DrivingLicensesBlockedTimestamp int32 `json:"DrivingLicensesBlockedTimestamp"`
+	WantedArchiv string `json:"WantedArchiv"`
+	Skin string `json:"Skin"`
+	Skills string `json:"Skills"`
+	DailyQuests string `json:"DailyQuests"`
+	BonusVehicleLimit int32 `json:"BonusVehicleLimit"`
+	Accessory string `json:"Accessory"`
+	Achievements string `json:"Achievements"`
+	TotalStatus string `json:"TotalStatus"`
+	ActiveStatus string `json:"ActiveStatus"`
+	SkillPoints string `json:"SkillPoints"`
+	SkillBranches string `json:"SkillBranches"`
 	SkillSync int32 `json:"SkillSync"`
-	ExpBoost *int32 `json:"ExpBoost,omitempty"`
-	Tattoos *string `json:"Tattoos,omitempty"`
-	Licenses *string `json:"Licenses,omitempty"`
-	DailyBonus *string `json:"DailyBonus,omitempty"`
+	Boosts string `json:"Boosts"`
+	Tattoos string `json:"Tattoos"`
+	Licenses string `json:"Licenses"`
+	DailyBonus string `json:"DailyBonus"`
+	SeasonPass string `json:"SeasonPass"`
+	SeasonPassPoints float64 `json:"SeasonPassPoints"`
+	SeasonPassPremium int32 `json:"SeasonPassPremium"`
+	WeaponsSkins string `json:"WeaponsSkins"`
+	VehiclesSkins string `json:"VehiclesSkins"`
+	HalloweenCount int32 `json:"HalloweenCount"`
+	LoginTimestamp int32 `json:"LoginTimestamp"`
+	RegisterTimestamp time.Time `json:"RegisterTimestamp"`
 }
 
 type _Character Character
@@ -72,18 +81,59 @@ type _Character Character
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCharacter(accountID int32, name string, gender int32, sTVO int32, vehicleLimit int32, questID string, raiting int32, foodStatus int32, activityStep int32, skillSync int32) *Character {
+func NewCharacter(iD int32, accountID int32, name string, playingtime int32, gender int32, sTVO int32, vehicleLimit int32, busExp int32, spawn string, spawnID int32, wanteds int32, jailTime int32, methTime int32, weaponLicenseA int32, weaponLicenseB int32, weaponLicenseC int32, activityTimestamp int32, questID string, questStatus int32, phoneNumber int32, factionTime int32, grade float64, raiting float64, drivingLicenseA int32, foodStatus int32, activityStep int32, drivingLicensesBlockedTimestamp int32, wantedArchiv string, skin string, skills string, dailyQuests string, bonusVehicleLimit int32, accessory string, achievements string, totalStatus string, activeStatus string, skillPoints string, skillBranches string, skillSync int32, boosts string, tattoos string, licenses string, dailyBonus string, seasonPass string, seasonPassPoints float64, seasonPassPremium int32, weaponsSkins string, vehiclesSkins string, halloweenCount int32, loginTimestamp int32, registerTimestamp time.Time) *Character {
 	this := Character{}
+	this.ID = iD
 	this.AccountID = accountID
 	this.Name = name
+	this.Playingtime = playingtime
 	this.Gender = gender
 	this.STVO = sTVO
 	this.VehicleLimit = vehicleLimit
+	this.BusExp = busExp
+	this.Spawn = spawn
+	this.SpawnID = spawnID
+	this.Wanteds = wanteds
+	this.JailTime = jailTime
+	this.MethTime = methTime
+	this.WeaponLicenseA = weaponLicenseA
+	this.WeaponLicenseB = weaponLicenseB
+	this.WeaponLicenseC = weaponLicenseC
+	this.ActivityTimestamp = activityTimestamp
 	this.QuestID = questID
+	this.QuestStatus = questStatus
+	this.PhoneNumber = phoneNumber
+	this.FactionTime = factionTime
+	this.Grade = grade
 	this.Raiting = raiting
+	this.DrivingLicenseA = drivingLicenseA
 	this.FoodStatus = foodStatus
 	this.ActivityStep = activityStep
+	this.DrivingLicensesBlockedTimestamp = drivingLicensesBlockedTimestamp
+	this.WantedArchiv = wantedArchiv
+	this.Skin = skin
+	this.Skills = skills
+	this.DailyQuests = dailyQuests
+	this.BonusVehicleLimit = bonusVehicleLimit
+	this.Accessory = accessory
+	this.Achievements = achievements
+	this.TotalStatus = totalStatus
+	this.ActiveStatus = activeStatus
+	this.SkillPoints = skillPoints
+	this.SkillBranches = skillBranches
 	this.SkillSync = skillSync
+	this.Boosts = boosts
+	this.Tattoos = tattoos
+	this.Licenses = licenses
+	this.DailyBonus = dailyBonus
+	this.SeasonPass = seasonPass
+	this.SeasonPassPoints = seasonPassPoints
+	this.SeasonPassPremium = seasonPassPremium
+	this.WeaponsSkins = weaponsSkins
+	this.VehiclesSkins = vehiclesSkins
+	this.HalloweenCount = halloweenCount
+	this.LoginTimestamp = loginTimestamp
+	this.RegisterTimestamp = registerTimestamp
 	return &this
 }
 
@@ -95,36 +145,28 @@ func NewCharacterWithDefaults() *Character {
 	return &this
 }
 
-// GetID returns the ID field value if set, zero value otherwise.
+// GetID returns the ID field value
 func (o *Character) GetID() int32 {
-	if o == nil || IsNil(o.ID) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.ID
+
+	return o.ID
 }
 
-// GetIDOk returns a tuple with the ID field value if set, nil otherwise
+// GetIDOk returns a tuple with the ID field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.ID) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ID, true
+	return &o.ID, true
 }
 
-// HasID returns a boolean if a field has been set.
-func (o *Character) HasID() bool {
-	if o != nil && !IsNil(o.ID) {
-		return true
-	}
-
-	return false
-}
-
-// SetID gets a reference to the given int32 and assigns it to the ID field.
+// SetID sets field value
 func (o *Character) SetID(v int32) {
-	o.ID = &v
+	o.ID = v
 }
 
 // GetAccountID returns the AccountID field value
@@ -175,36 +217,28 @@ func (o *Character) SetName(v string) {
 	o.Name = v
 }
 
-// GetPlayingtime returns the Playingtime field value if set, zero value otherwise.
+// GetPlayingtime returns the Playingtime field value
 func (o *Character) GetPlayingtime() int32 {
-	if o == nil || IsNil(o.Playingtime) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Playingtime
+
+	return o.Playingtime
 }
 
-// GetPlayingtimeOk returns a tuple with the Playingtime field value if set, nil otherwise
+// GetPlayingtimeOk returns a tuple with the Playingtime field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetPlayingtimeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Playingtime) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Playingtime, true
+	return &o.Playingtime, true
 }
 
-// HasPlayingtime returns a boolean if a field has been set.
-func (o *Character) HasPlayingtime() bool {
-	if o != nil && !IsNil(o.Playingtime) {
-		return true
-	}
-
-	return false
-}
-
-// SetPlayingtime gets a reference to the given int32 and assigns it to the Playingtime field.
+// SetPlayingtime sets field value
 func (o *Character) SetPlayingtime(v int32) {
-	o.Playingtime = &v
+	o.Playingtime = v
 }
 
 // GetGender returns the Gender field value
@@ -279,324 +313,244 @@ func (o *Character) SetVehicleLimit(v int32) {
 	o.VehicleLimit = v
 }
 
-// GetBusExp returns the BusExp field value if set, zero value otherwise.
+// GetBusExp returns the BusExp field value
 func (o *Character) GetBusExp() int32 {
-	if o == nil || IsNil(o.BusExp) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.BusExp
+
+	return o.BusExp
 }
 
-// GetBusExpOk returns a tuple with the BusExp field value if set, nil otherwise
+// GetBusExpOk returns a tuple with the BusExp field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetBusExpOk() (*int32, bool) {
-	if o == nil || IsNil(o.BusExp) {
+	if o == nil {
 		return nil, false
 	}
-	return o.BusExp, true
+	return &o.BusExp, true
 }
 
-// HasBusExp returns a boolean if a field has been set.
-func (o *Character) HasBusExp() bool {
-	if o != nil && !IsNil(o.BusExp) {
-		return true
-	}
-
-	return false
-}
-
-// SetBusExp gets a reference to the given int32 and assigns it to the BusExp field.
+// SetBusExp sets field value
 func (o *Character) SetBusExp(v int32) {
-	o.BusExp = &v
+	o.BusExp = v
 }
 
-// GetSpawn returns the Spawn field value if set, zero value otherwise.
+// GetSpawn returns the Spawn field value
 func (o *Character) GetSpawn() string {
-	if o == nil || IsNil(o.Spawn) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Spawn
+
+	return o.Spawn
 }
 
-// GetSpawnOk returns a tuple with the Spawn field value if set, nil otherwise
+// GetSpawnOk returns a tuple with the Spawn field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetSpawnOk() (*string, bool) {
-	if o == nil || IsNil(o.Spawn) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Spawn, true
+	return &o.Spawn, true
 }
 
-// HasSpawn returns a boolean if a field has been set.
-func (o *Character) HasSpawn() bool {
-	if o != nil && !IsNil(o.Spawn) {
-		return true
-	}
-
-	return false
-}
-
-// SetSpawn gets a reference to the given string and assigns it to the Spawn field.
+// SetSpawn sets field value
 func (o *Character) SetSpawn(v string) {
-	o.Spawn = &v
+	o.Spawn = v
 }
 
-// GetSpawnID returns the SpawnID field value if set, zero value otherwise.
+// GetSpawnID returns the SpawnID field value
 func (o *Character) GetSpawnID() int32 {
-	if o == nil || IsNil(o.SpawnID) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.SpawnID
+
+	return o.SpawnID
 }
 
-// GetSpawnIDOk returns a tuple with the SpawnID field value if set, nil otherwise
+// GetSpawnIDOk returns a tuple with the SpawnID field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetSpawnIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.SpawnID) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SpawnID, true
+	return &o.SpawnID, true
 }
 
-// HasSpawnID returns a boolean if a field has been set.
-func (o *Character) HasSpawnID() bool {
-	if o != nil && !IsNil(o.SpawnID) {
-		return true
-	}
-
-	return false
-}
-
-// SetSpawnID gets a reference to the given int32 and assigns it to the SpawnID field.
+// SetSpawnID sets field value
 func (o *Character) SetSpawnID(v int32) {
-	o.SpawnID = &v
+	o.SpawnID = v
 }
 
-// GetWanteds returns the Wanteds field value if set, zero value otherwise.
+// GetWanteds returns the Wanteds field value
 func (o *Character) GetWanteds() int32 {
-	if o == nil || IsNil(o.Wanteds) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Wanteds
+
+	return o.Wanteds
 }
 
-// GetWantedsOk returns a tuple with the Wanteds field value if set, nil otherwise
+// GetWantedsOk returns a tuple with the Wanteds field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetWantedsOk() (*int32, bool) {
-	if o == nil || IsNil(o.Wanteds) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Wanteds, true
+	return &o.Wanteds, true
 }
 
-// HasWanteds returns a boolean if a field has been set.
-func (o *Character) HasWanteds() bool {
-	if o != nil && !IsNil(o.Wanteds) {
-		return true
-	}
-
-	return false
-}
-
-// SetWanteds gets a reference to the given int32 and assigns it to the Wanteds field.
+// SetWanteds sets field value
 func (o *Character) SetWanteds(v int32) {
-	o.Wanteds = &v
+	o.Wanteds = v
 }
 
-// GetJailTime returns the JailTime field value if set, zero value otherwise.
+// GetJailTime returns the JailTime field value
 func (o *Character) GetJailTime() int32 {
-	if o == nil || IsNil(o.JailTime) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.JailTime
+
+	return o.JailTime
 }
 
-// GetJailTimeOk returns a tuple with the JailTime field value if set, nil otherwise
+// GetJailTimeOk returns a tuple with the JailTime field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetJailTimeOk() (*int32, bool) {
-	if o == nil || IsNil(o.JailTime) {
+	if o == nil {
 		return nil, false
 	}
-	return o.JailTime, true
+	return &o.JailTime, true
 }
 
-// HasJailTime returns a boolean if a field has been set.
-func (o *Character) HasJailTime() bool {
-	if o != nil && !IsNil(o.JailTime) {
-		return true
-	}
-
-	return false
-}
-
-// SetJailTime gets a reference to the given int32 and assigns it to the JailTime field.
+// SetJailTime sets field value
 func (o *Character) SetJailTime(v int32) {
-	o.JailTime = &v
+	o.JailTime = v
 }
 
-// GetMethTime returns the MethTime field value if set, zero value otherwise.
+// GetMethTime returns the MethTime field value
 func (o *Character) GetMethTime() int32 {
-	if o == nil || IsNil(o.MethTime) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.MethTime
+
+	return o.MethTime
 }
 
-// GetMethTimeOk returns a tuple with the MethTime field value if set, nil otherwise
+// GetMethTimeOk returns a tuple with the MethTime field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetMethTimeOk() (*int32, bool) {
-	if o == nil || IsNil(o.MethTime) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MethTime, true
+	return &o.MethTime, true
 }
 
-// HasMethTime returns a boolean if a field has been set.
-func (o *Character) HasMethTime() bool {
-	if o != nil && !IsNil(o.MethTime) {
-		return true
-	}
-
-	return false
-}
-
-// SetMethTime gets a reference to the given int32 and assigns it to the MethTime field.
+// SetMethTime sets field value
 func (o *Character) SetMethTime(v int32) {
-	o.MethTime = &v
+	o.MethTime = v
 }
 
-// GetWeaponLicenseA returns the WeaponLicenseA field value if set, zero value otherwise.
+// GetWeaponLicenseA returns the WeaponLicenseA field value
 func (o *Character) GetWeaponLicenseA() int32 {
-	if o == nil || IsNil(o.WeaponLicenseA) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.WeaponLicenseA
+
+	return o.WeaponLicenseA
 }
 
-// GetWeaponLicenseAOk returns a tuple with the WeaponLicenseA field value if set, nil otherwise
+// GetWeaponLicenseAOk returns a tuple with the WeaponLicenseA field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetWeaponLicenseAOk() (*int32, bool) {
-	if o == nil || IsNil(o.WeaponLicenseA) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WeaponLicenseA, true
+	return &o.WeaponLicenseA, true
 }
 
-// HasWeaponLicenseA returns a boolean if a field has been set.
-func (o *Character) HasWeaponLicenseA() bool {
-	if o != nil && !IsNil(o.WeaponLicenseA) {
-		return true
-	}
-
-	return false
-}
-
-// SetWeaponLicenseA gets a reference to the given int32 and assigns it to the WeaponLicenseA field.
+// SetWeaponLicenseA sets field value
 func (o *Character) SetWeaponLicenseA(v int32) {
-	o.WeaponLicenseA = &v
+	o.WeaponLicenseA = v
 }
 
-// GetWeaponLicenseB returns the WeaponLicenseB field value if set, zero value otherwise.
+// GetWeaponLicenseB returns the WeaponLicenseB field value
 func (o *Character) GetWeaponLicenseB() int32 {
-	if o == nil || IsNil(o.WeaponLicenseB) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.WeaponLicenseB
+
+	return o.WeaponLicenseB
 }
 
-// GetWeaponLicenseBOk returns a tuple with the WeaponLicenseB field value if set, nil otherwise
+// GetWeaponLicenseBOk returns a tuple with the WeaponLicenseB field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetWeaponLicenseBOk() (*int32, bool) {
-	if o == nil || IsNil(o.WeaponLicenseB) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WeaponLicenseB, true
+	return &o.WeaponLicenseB, true
 }
 
-// HasWeaponLicenseB returns a boolean if a field has been set.
-func (o *Character) HasWeaponLicenseB() bool {
-	if o != nil && !IsNil(o.WeaponLicenseB) {
-		return true
-	}
-
-	return false
-}
-
-// SetWeaponLicenseB gets a reference to the given int32 and assigns it to the WeaponLicenseB field.
+// SetWeaponLicenseB sets field value
 func (o *Character) SetWeaponLicenseB(v int32) {
-	o.WeaponLicenseB = &v
+	o.WeaponLicenseB = v
 }
 
-// GetWeaponLicenseC returns the WeaponLicenseC field value if set, zero value otherwise.
+// GetWeaponLicenseC returns the WeaponLicenseC field value
 func (o *Character) GetWeaponLicenseC() int32 {
-	if o == nil || IsNil(o.WeaponLicenseC) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.WeaponLicenseC
+
+	return o.WeaponLicenseC
 }
 
-// GetWeaponLicenseCOk returns a tuple with the WeaponLicenseC field value if set, nil otherwise
+// GetWeaponLicenseCOk returns a tuple with the WeaponLicenseC field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetWeaponLicenseCOk() (*int32, bool) {
-	if o == nil || IsNil(o.WeaponLicenseC) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WeaponLicenseC, true
+	return &o.WeaponLicenseC, true
 }
 
-// HasWeaponLicenseC returns a boolean if a field has been set.
-func (o *Character) HasWeaponLicenseC() bool {
-	if o != nil && !IsNil(o.WeaponLicenseC) {
-		return true
-	}
-
-	return false
-}
-
-// SetWeaponLicenseC gets a reference to the given int32 and assigns it to the WeaponLicenseC field.
+// SetWeaponLicenseC sets field value
 func (o *Character) SetWeaponLicenseC(v int32) {
-	o.WeaponLicenseC = &v
+	o.WeaponLicenseC = v
 }
 
-// GetActivityTimestamp returns the ActivityTimestamp field value if set, zero value otherwise.
+// GetActivityTimestamp returns the ActivityTimestamp field value
 func (o *Character) GetActivityTimestamp() int32 {
-	if o == nil || IsNil(o.ActivityTimestamp) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.ActivityTimestamp
+
+	return o.ActivityTimestamp
 }
 
-// GetActivityTimestampOk returns a tuple with the ActivityTimestamp field value if set, nil otherwise
+// GetActivityTimestampOk returns a tuple with the ActivityTimestamp field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetActivityTimestampOk() (*int32, bool) {
-	if o == nil || IsNil(o.ActivityTimestamp) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ActivityTimestamp, true
+	return &o.ActivityTimestamp, true
 }
 
-// HasActivityTimestamp returns a boolean if a field has been set.
-func (o *Character) HasActivityTimestamp() bool {
-	if o != nil && !IsNil(o.ActivityTimestamp) {
-		return true
-	}
-
-	return false
-}
-
-// SetActivityTimestamp gets a reference to the given int32 and assigns it to the ActivityTimestamp field.
+// SetActivityTimestamp sets field value
 func (o *Character) SetActivityTimestamp(v int32) {
-	o.ActivityTimestamp = &v
+	o.ActivityTimestamp = v
 }
 
 // GetQuestID returns the QuestID field value
@@ -623,138 +577,106 @@ func (o *Character) SetQuestID(v string) {
 	o.QuestID = v
 }
 
-// GetQuestStatus returns the QuestStatus field value if set, zero value otherwise.
+// GetQuestStatus returns the QuestStatus field value
 func (o *Character) GetQuestStatus() int32 {
-	if o == nil || IsNil(o.QuestStatus) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.QuestStatus
+
+	return o.QuestStatus
 }
 
-// GetQuestStatusOk returns a tuple with the QuestStatus field value if set, nil otherwise
+// GetQuestStatusOk returns a tuple with the QuestStatus field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetQuestStatusOk() (*int32, bool) {
-	if o == nil || IsNil(o.QuestStatus) {
+	if o == nil {
 		return nil, false
 	}
-	return o.QuestStatus, true
+	return &o.QuestStatus, true
 }
 
-// HasQuestStatus returns a boolean if a field has been set.
-func (o *Character) HasQuestStatus() bool {
-	if o != nil && !IsNil(o.QuestStatus) {
-		return true
-	}
-
-	return false
-}
-
-// SetQuestStatus gets a reference to the given int32 and assigns it to the QuestStatus field.
+// SetQuestStatus sets field value
 func (o *Character) SetQuestStatus(v int32) {
-	o.QuestStatus = &v
+	o.QuestStatus = v
 }
 
-// GetPhoneNumber returns the PhoneNumber field value if set, zero value otherwise.
+// GetPhoneNumber returns the PhoneNumber field value
 func (o *Character) GetPhoneNumber() int32 {
-	if o == nil || IsNil(o.PhoneNumber) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.PhoneNumber
+
+	return o.PhoneNumber
 }
 
-// GetPhoneNumberOk returns a tuple with the PhoneNumber field value if set, nil otherwise
+// GetPhoneNumberOk returns a tuple with the PhoneNumber field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetPhoneNumberOk() (*int32, bool) {
-	if o == nil || IsNil(o.PhoneNumber) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PhoneNumber, true
+	return &o.PhoneNumber, true
 }
 
-// HasPhoneNumber returns a boolean if a field has been set.
-func (o *Character) HasPhoneNumber() bool {
-	if o != nil && !IsNil(o.PhoneNumber) {
-		return true
-	}
-
-	return false
-}
-
-// SetPhoneNumber gets a reference to the given int32 and assigns it to the PhoneNumber field.
+// SetPhoneNumber sets field value
 func (o *Character) SetPhoneNumber(v int32) {
-	o.PhoneNumber = &v
+	o.PhoneNumber = v
 }
 
-// GetFactionTime returns the FactionTime field value if set, zero value otherwise.
+// GetFactionTime returns the FactionTime field value
 func (o *Character) GetFactionTime() int32 {
-	if o == nil || IsNil(o.FactionTime) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.FactionTime
+
+	return o.FactionTime
 }
 
-// GetFactionTimeOk returns a tuple with the FactionTime field value if set, nil otherwise
+// GetFactionTimeOk returns a tuple with the FactionTime field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetFactionTimeOk() (*int32, bool) {
-	if o == nil || IsNil(o.FactionTime) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FactionTime, true
+	return &o.FactionTime, true
 }
 
-// HasFactionTime returns a boolean if a field has been set.
-func (o *Character) HasFactionTime() bool {
-	if o != nil && !IsNil(o.FactionTime) {
-		return true
-	}
-
-	return false
-}
-
-// SetFactionTime gets a reference to the given int32 and assigns it to the FactionTime field.
+// SetFactionTime sets field value
 func (o *Character) SetFactionTime(v int32) {
-	o.FactionTime = &v
+	o.FactionTime = v
 }
 
-// GetGrade returns the Grade field value if set, zero value otherwise.
+// GetGrade returns the Grade field value
 func (o *Character) GetGrade() float64 {
-	if o == nil || IsNil(o.Grade) {
+	if o == nil {
 		var ret float64
 		return ret
 	}
-	return *o.Grade
+
+	return o.Grade
 }
 
-// GetGradeOk returns a tuple with the Grade field value if set, nil otherwise
+// GetGradeOk returns a tuple with the Grade field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetGradeOk() (*float64, bool) {
-	if o == nil || IsNil(o.Grade) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Grade, true
+	return &o.Grade, true
 }
 
-// HasGrade returns a boolean if a field has been set.
-func (o *Character) HasGrade() bool {
-	if o != nil && !IsNil(o.Grade) {
-		return true
-	}
-
-	return false
-}
-
-// SetGrade gets a reference to the given float64 and assigns it to the Grade field.
+// SetGrade sets field value
 func (o *Character) SetGrade(v float64) {
-	o.Grade = &v
+	o.Grade = v
 }
 
 // GetRaiting returns the Raiting field value
-func (o *Character) GetRaiting() int32 {
+func (o *Character) GetRaiting() float64 {
 	if o == nil {
-		var ret int32
+		var ret float64
 		return ret
 	}
 
@@ -763,7 +685,7 @@ func (o *Character) GetRaiting() int32 {
 
 // GetRaitingOk returns a tuple with the Raiting field value
 // and a boolean to check if the value has been set.
-func (o *Character) GetRaitingOk() (*int32, bool) {
+func (o *Character) GetRaitingOk() (*float64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -771,40 +693,32 @@ func (o *Character) GetRaitingOk() (*int32, bool) {
 }
 
 // SetRaiting sets field value
-func (o *Character) SetRaiting(v int32) {
+func (o *Character) SetRaiting(v float64) {
 	o.Raiting = v
 }
 
-// GetDrivingLicenseA returns the DrivingLicenseA field value if set, zero value otherwise.
+// GetDrivingLicenseA returns the DrivingLicenseA field value
 func (o *Character) GetDrivingLicenseA() int32 {
-	if o == nil || IsNil(o.DrivingLicenseA) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.DrivingLicenseA
+
+	return o.DrivingLicenseA
 }
 
-// GetDrivingLicenseAOk returns a tuple with the DrivingLicenseA field value if set, nil otherwise
+// GetDrivingLicenseAOk returns a tuple with the DrivingLicenseA field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetDrivingLicenseAOk() (*int32, bool) {
-	if o == nil || IsNil(o.DrivingLicenseA) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DrivingLicenseA, true
+	return &o.DrivingLicenseA, true
 }
 
-// HasDrivingLicenseA returns a boolean if a field has been set.
-func (o *Character) HasDrivingLicenseA() bool {
-	if o != nil && !IsNil(o.DrivingLicenseA) {
-		return true
-	}
-
-	return false
-}
-
-// SetDrivingLicenseA gets a reference to the given int32 and assigns it to the DrivingLicenseA field.
+// SetDrivingLicenseA sets field value
 func (o *Character) SetDrivingLicenseA(v int32) {
-	o.DrivingLicenseA = &v
+	o.DrivingLicenseA = v
 }
 
 // GetFoodStatus returns the FoodStatus field value
@@ -855,388 +769,292 @@ func (o *Character) SetActivityStep(v int32) {
 	o.ActivityStep = v
 }
 
-// GetDrivingLicensesBlockedTimestamp returns the DrivingLicensesBlockedTimestamp field value if set, zero value otherwise.
+// GetDrivingLicensesBlockedTimestamp returns the DrivingLicensesBlockedTimestamp field value
 func (o *Character) GetDrivingLicensesBlockedTimestamp() int32 {
-	if o == nil || IsNil(o.DrivingLicensesBlockedTimestamp) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.DrivingLicensesBlockedTimestamp
+
+	return o.DrivingLicensesBlockedTimestamp
 }
 
-// GetDrivingLicensesBlockedTimestampOk returns a tuple with the DrivingLicensesBlockedTimestamp field value if set, nil otherwise
+// GetDrivingLicensesBlockedTimestampOk returns a tuple with the DrivingLicensesBlockedTimestamp field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetDrivingLicensesBlockedTimestampOk() (*int32, bool) {
-	if o == nil || IsNil(o.DrivingLicensesBlockedTimestamp) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DrivingLicensesBlockedTimestamp, true
+	return &o.DrivingLicensesBlockedTimestamp, true
 }
 
-// HasDrivingLicensesBlockedTimestamp returns a boolean if a field has been set.
-func (o *Character) HasDrivingLicensesBlockedTimestamp() bool {
-	if o != nil && !IsNil(o.DrivingLicensesBlockedTimestamp) {
-		return true
-	}
-
-	return false
-}
-
-// SetDrivingLicensesBlockedTimestamp gets a reference to the given int32 and assigns it to the DrivingLicensesBlockedTimestamp field.
+// SetDrivingLicensesBlockedTimestamp sets field value
 func (o *Character) SetDrivingLicensesBlockedTimestamp(v int32) {
-	o.DrivingLicensesBlockedTimestamp = &v
+	o.DrivingLicensesBlockedTimestamp = v
 }
 
-// GetWantedArchiv returns the WantedArchiv field value if set, zero value otherwise.
+// GetWantedArchiv returns the WantedArchiv field value
 func (o *Character) GetWantedArchiv() string {
-	if o == nil || IsNil(o.WantedArchiv) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.WantedArchiv
+
+	return o.WantedArchiv
 }
 
-// GetWantedArchivOk returns a tuple with the WantedArchiv field value if set, nil otherwise
+// GetWantedArchivOk returns a tuple with the WantedArchiv field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetWantedArchivOk() (*string, bool) {
-	if o == nil || IsNil(o.WantedArchiv) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WantedArchiv, true
+	return &o.WantedArchiv, true
 }
 
-// HasWantedArchiv returns a boolean if a field has been set.
-func (o *Character) HasWantedArchiv() bool {
-	if o != nil && !IsNil(o.WantedArchiv) {
-		return true
-	}
-
-	return false
-}
-
-// SetWantedArchiv gets a reference to the given string and assigns it to the WantedArchiv field.
+// SetWantedArchiv sets field value
 func (o *Character) SetWantedArchiv(v string) {
-	o.WantedArchiv = &v
+	o.WantedArchiv = v
 }
 
-// GetSkin returns the Skin field value if set, zero value otherwise.
+// GetSkin returns the Skin field value
 func (o *Character) GetSkin() string {
-	if o == nil || IsNil(o.Skin) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Skin
+
+	return o.Skin
 }
 
-// GetSkinOk returns a tuple with the Skin field value if set, nil otherwise
+// GetSkinOk returns a tuple with the Skin field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetSkinOk() (*string, bool) {
-	if o == nil || IsNil(o.Skin) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Skin, true
+	return &o.Skin, true
 }
 
-// HasSkin returns a boolean if a field has been set.
-func (o *Character) HasSkin() bool {
-	if o != nil && !IsNil(o.Skin) {
-		return true
-	}
-
-	return false
-}
-
-// SetSkin gets a reference to the given string and assigns it to the Skin field.
+// SetSkin sets field value
 func (o *Character) SetSkin(v string) {
-	o.Skin = &v
+	o.Skin = v
 }
 
-// GetSkills returns the Skills field value if set, zero value otherwise.
+// GetSkills returns the Skills field value
 func (o *Character) GetSkills() string {
-	if o == nil || IsNil(o.Skills) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Skills
+
+	return o.Skills
 }
 
-// GetSkillsOk returns a tuple with the Skills field value if set, nil otherwise
+// GetSkillsOk returns a tuple with the Skills field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetSkillsOk() (*string, bool) {
-	if o == nil || IsNil(o.Skills) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Skills, true
+	return &o.Skills, true
 }
 
-// HasSkills returns a boolean if a field has been set.
-func (o *Character) HasSkills() bool {
-	if o != nil && !IsNil(o.Skills) {
-		return true
-	}
-
-	return false
-}
-
-// SetSkills gets a reference to the given string and assigns it to the Skills field.
+// SetSkills sets field value
 func (o *Character) SetSkills(v string) {
-	o.Skills = &v
+	o.Skills = v
 }
 
-// GetDailyQuests returns the DailyQuests field value if set, zero value otherwise.
+// GetDailyQuests returns the DailyQuests field value
 func (o *Character) GetDailyQuests() string {
-	if o == nil || IsNil(o.DailyQuests) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.DailyQuests
+
+	return o.DailyQuests
 }
 
-// GetDailyQuestsOk returns a tuple with the DailyQuests field value if set, nil otherwise
+// GetDailyQuestsOk returns a tuple with the DailyQuests field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetDailyQuestsOk() (*string, bool) {
-	if o == nil || IsNil(o.DailyQuests) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DailyQuests, true
+	return &o.DailyQuests, true
 }
 
-// HasDailyQuests returns a boolean if a field has been set.
-func (o *Character) HasDailyQuests() bool {
-	if o != nil && !IsNil(o.DailyQuests) {
-		return true
-	}
-
-	return false
-}
-
-// SetDailyQuests gets a reference to the given string and assigns it to the DailyQuests field.
+// SetDailyQuests sets field value
 func (o *Character) SetDailyQuests(v string) {
-	o.DailyQuests = &v
+	o.DailyQuests = v
 }
 
-// GetBonusVehicleLimit returns the BonusVehicleLimit field value if set, zero value otherwise.
+// GetBonusVehicleLimit returns the BonusVehicleLimit field value
 func (o *Character) GetBonusVehicleLimit() int32 {
-	if o == nil || IsNil(o.BonusVehicleLimit) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.BonusVehicleLimit
+
+	return o.BonusVehicleLimit
 }
 
-// GetBonusVehicleLimitOk returns a tuple with the BonusVehicleLimit field value if set, nil otherwise
+// GetBonusVehicleLimitOk returns a tuple with the BonusVehicleLimit field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetBonusVehicleLimitOk() (*int32, bool) {
-	if o == nil || IsNil(o.BonusVehicleLimit) {
+	if o == nil {
 		return nil, false
 	}
-	return o.BonusVehicleLimit, true
+	return &o.BonusVehicleLimit, true
 }
 
-// HasBonusVehicleLimit returns a boolean if a field has been set.
-func (o *Character) HasBonusVehicleLimit() bool {
-	if o != nil && !IsNil(o.BonusVehicleLimit) {
-		return true
-	}
-
-	return false
-}
-
-// SetBonusVehicleLimit gets a reference to the given int32 and assigns it to the BonusVehicleLimit field.
+// SetBonusVehicleLimit sets field value
 func (o *Character) SetBonusVehicleLimit(v int32) {
-	o.BonusVehicleLimit = &v
+	o.BonusVehicleLimit = v
 }
 
-// GetAccessory returns the Accessory field value if set, zero value otherwise.
+// GetAccessory returns the Accessory field value
 func (o *Character) GetAccessory() string {
-	if o == nil || IsNil(o.Accessory) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Accessory
+
+	return o.Accessory
 }
 
-// GetAccessoryOk returns a tuple with the Accessory field value if set, nil otherwise
+// GetAccessoryOk returns a tuple with the Accessory field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetAccessoryOk() (*string, bool) {
-	if o == nil || IsNil(o.Accessory) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Accessory, true
+	return &o.Accessory, true
 }
 
-// HasAccessory returns a boolean if a field has been set.
-func (o *Character) HasAccessory() bool {
-	if o != nil && !IsNil(o.Accessory) {
-		return true
-	}
-
-	return false
-}
-
-// SetAccessory gets a reference to the given string and assigns it to the Accessory field.
+// SetAccessory sets field value
 func (o *Character) SetAccessory(v string) {
-	o.Accessory = &v
+	o.Accessory = v
 }
 
-// GetAchievements returns the Achievements field value if set, zero value otherwise.
+// GetAchievements returns the Achievements field value
 func (o *Character) GetAchievements() string {
-	if o == nil || IsNil(o.Achievements) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Achievements
+
+	return o.Achievements
 }
 
-// GetAchievementsOk returns a tuple with the Achievements field value if set, nil otherwise
+// GetAchievementsOk returns a tuple with the Achievements field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetAchievementsOk() (*string, bool) {
-	if o == nil || IsNil(o.Achievements) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Achievements, true
+	return &o.Achievements, true
 }
 
-// HasAchievements returns a boolean if a field has been set.
-func (o *Character) HasAchievements() bool {
-	if o != nil && !IsNil(o.Achievements) {
-		return true
-	}
-
-	return false
-}
-
-// SetAchievements gets a reference to the given string and assigns it to the Achievements field.
+// SetAchievements sets field value
 func (o *Character) SetAchievements(v string) {
-	o.Achievements = &v
+	o.Achievements = v
 }
 
-// GetTotalStatus returns the TotalStatus field value if set, zero value otherwise.
+// GetTotalStatus returns the TotalStatus field value
 func (o *Character) GetTotalStatus() string {
-	if o == nil || IsNil(o.TotalStatus) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TotalStatus
+
+	return o.TotalStatus
 }
 
-// GetTotalStatusOk returns a tuple with the TotalStatus field value if set, nil otherwise
+// GetTotalStatusOk returns a tuple with the TotalStatus field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetTotalStatusOk() (*string, bool) {
-	if o == nil || IsNil(o.TotalStatus) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TotalStatus, true
+	return &o.TotalStatus, true
 }
 
-// HasTotalStatus returns a boolean if a field has been set.
-func (o *Character) HasTotalStatus() bool {
-	if o != nil && !IsNil(o.TotalStatus) {
-		return true
-	}
-
-	return false
-}
-
-// SetTotalStatus gets a reference to the given string and assigns it to the TotalStatus field.
+// SetTotalStatus sets field value
 func (o *Character) SetTotalStatus(v string) {
-	o.TotalStatus = &v
+	o.TotalStatus = v
 }
 
-// GetActiveStatus returns the ActiveStatus field value if set, zero value otherwise.
+// GetActiveStatus returns the ActiveStatus field value
 func (o *Character) GetActiveStatus() string {
-	if o == nil || IsNil(o.ActiveStatus) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ActiveStatus
+
+	return o.ActiveStatus
 }
 
-// GetActiveStatusOk returns a tuple with the ActiveStatus field value if set, nil otherwise
+// GetActiveStatusOk returns a tuple with the ActiveStatus field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetActiveStatusOk() (*string, bool) {
-	if o == nil || IsNil(o.ActiveStatus) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ActiveStatus, true
+	return &o.ActiveStatus, true
 }
 
-// HasActiveStatus returns a boolean if a field has been set.
-func (o *Character) HasActiveStatus() bool {
-	if o != nil && !IsNil(o.ActiveStatus) {
-		return true
-	}
-
-	return false
-}
-
-// SetActiveStatus gets a reference to the given string and assigns it to the ActiveStatus field.
+// SetActiveStatus sets field value
 func (o *Character) SetActiveStatus(v string) {
-	o.ActiveStatus = &v
+	o.ActiveStatus = v
 }
 
-// GetSkillPoints returns the SkillPoints field value if set, zero value otherwise.
+// GetSkillPoints returns the SkillPoints field value
 func (o *Character) GetSkillPoints() string {
-	if o == nil || IsNil(o.SkillPoints) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SkillPoints
+
+	return o.SkillPoints
 }
 
-// GetSkillPointsOk returns a tuple with the SkillPoints field value if set, nil otherwise
+// GetSkillPointsOk returns a tuple with the SkillPoints field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetSkillPointsOk() (*string, bool) {
-	if o == nil || IsNil(o.SkillPoints) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SkillPoints, true
+	return &o.SkillPoints, true
 }
 
-// HasSkillPoints returns a boolean if a field has been set.
-func (o *Character) HasSkillPoints() bool {
-	if o != nil && !IsNil(o.SkillPoints) {
-		return true
-	}
-
-	return false
-}
-
-// SetSkillPoints gets a reference to the given string and assigns it to the SkillPoints field.
+// SetSkillPoints sets field value
 func (o *Character) SetSkillPoints(v string) {
-	o.SkillPoints = &v
+	o.SkillPoints = v
 }
 
-// GetSkillBranches returns the SkillBranches field value if set, zero value otherwise.
+// GetSkillBranches returns the SkillBranches field value
 func (o *Character) GetSkillBranches() string {
-	if o == nil || IsNil(o.SkillBranches) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SkillBranches
+
+	return o.SkillBranches
 }
 
-// GetSkillBranchesOk returns a tuple with the SkillBranches field value if set, nil otherwise
+// GetSkillBranchesOk returns a tuple with the SkillBranches field value
 // and a boolean to check if the value has been set.
 func (o *Character) GetSkillBranchesOk() (*string, bool) {
-	if o == nil || IsNil(o.SkillBranches) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SkillBranches, true
+	return &o.SkillBranches, true
 }
 
-// HasSkillBranches returns a boolean if a field has been set.
-func (o *Character) HasSkillBranches() bool {
-	if o != nil && !IsNil(o.SkillBranches) {
-		return true
-	}
-
-	return false
-}
-
-// SetSkillBranches gets a reference to the given string and assigns it to the SkillBranches field.
+// SetSkillBranches sets field value
 func (o *Character) SetSkillBranches(v string) {
-	o.SkillBranches = &v
+	o.SkillBranches = v
 }
 
 // GetSkillSync returns the SkillSync field value
@@ -1263,132 +1081,292 @@ func (o *Character) SetSkillSync(v int32) {
 	o.SkillSync = v
 }
 
-// GetExpBoost returns the ExpBoost field value if set, zero value otherwise.
-func (o *Character) GetExpBoost() int32 {
-	if o == nil || IsNil(o.ExpBoost) {
+// GetBoosts returns the Boosts field value
+func (o *Character) GetBoosts() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Boosts
+}
+
+// GetBoostsOk returns a tuple with the Boosts field value
+// and a boolean to check if the value has been set.
+func (o *Character) GetBoostsOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Boosts, true
+}
+
+// SetBoosts sets field value
+func (o *Character) SetBoosts(v string) {
+	o.Boosts = v
+}
+
+// GetTattoos returns the Tattoos field value
+func (o *Character) GetTattoos() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Tattoos
+}
+
+// GetTattoosOk returns a tuple with the Tattoos field value
+// and a boolean to check if the value has been set.
+func (o *Character) GetTattoosOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Tattoos, true
+}
+
+// SetTattoos sets field value
+func (o *Character) SetTattoos(v string) {
+	o.Tattoos = v
+}
+
+// GetLicenses returns the Licenses field value
+func (o *Character) GetLicenses() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Licenses
+}
+
+// GetLicensesOk returns a tuple with the Licenses field value
+// and a boolean to check if the value has been set.
+func (o *Character) GetLicensesOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Licenses, true
+}
+
+// SetLicenses sets field value
+func (o *Character) SetLicenses(v string) {
+	o.Licenses = v
+}
+
+// GetDailyBonus returns the DailyBonus field value
+func (o *Character) GetDailyBonus() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.DailyBonus
+}
+
+// GetDailyBonusOk returns a tuple with the DailyBonus field value
+// and a boolean to check if the value has been set.
+func (o *Character) GetDailyBonusOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.DailyBonus, true
+}
+
+// SetDailyBonus sets field value
+func (o *Character) SetDailyBonus(v string) {
+	o.DailyBonus = v
+}
+
+// GetSeasonPass returns the SeasonPass field value
+func (o *Character) GetSeasonPass() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SeasonPass
+}
+
+// GetSeasonPassOk returns a tuple with the SeasonPass field value
+// and a boolean to check if the value has been set.
+func (o *Character) GetSeasonPassOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SeasonPass, true
+}
+
+// SetSeasonPass sets field value
+func (o *Character) SetSeasonPass(v string) {
+	o.SeasonPass = v
+}
+
+// GetSeasonPassPoints returns the SeasonPassPoints field value
+func (o *Character) GetSeasonPassPoints() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.SeasonPassPoints
+}
+
+// GetSeasonPassPointsOk returns a tuple with the SeasonPassPoints field value
+// and a boolean to check if the value has been set.
+func (o *Character) GetSeasonPassPointsOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SeasonPassPoints, true
+}
+
+// SetSeasonPassPoints sets field value
+func (o *Character) SetSeasonPassPoints(v float64) {
+	o.SeasonPassPoints = v
+}
+
+// GetSeasonPassPremium returns the SeasonPassPremium field value
+func (o *Character) GetSeasonPassPremium() int32 {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.ExpBoost
+
+	return o.SeasonPassPremium
 }
 
-// GetExpBoostOk returns a tuple with the ExpBoost field value if set, nil otherwise
+// GetSeasonPassPremiumOk returns a tuple with the SeasonPassPremium field value
 // and a boolean to check if the value has been set.
-func (o *Character) GetExpBoostOk() (*int32, bool) {
-	if o == nil || IsNil(o.ExpBoost) {
+func (o *Character) GetSeasonPassPremiumOk() (*int32, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ExpBoost, true
+	return &o.SeasonPassPremium, true
 }
 
-// HasExpBoost returns a boolean if a field has been set.
-func (o *Character) HasExpBoost() bool {
-	if o != nil && !IsNil(o.ExpBoost) {
-		return true
-	}
-
-	return false
+// SetSeasonPassPremium sets field value
+func (o *Character) SetSeasonPassPremium(v int32) {
+	o.SeasonPassPremium = v
 }
 
-// SetExpBoost gets a reference to the given int32 and assigns it to the ExpBoost field.
-func (o *Character) SetExpBoost(v int32) {
-	o.ExpBoost = &v
-}
-
-// GetTattoos returns the Tattoos field value if set, zero value otherwise.
-func (o *Character) GetTattoos() string {
-	if o == nil || IsNil(o.Tattoos) {
+// GetWeaponsSkins returns the WeaponsSkins field value
+func (o *Character) GetWeaponsSkins() string {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Tattoos
+
+	return o.WeaponsSkins
 }
 
-// GetTattoosOk returns a tuple with the Tattoos field value if set, nil otherwise
+// GetWeaponsSkinsOk returns a tuple with the WeaponsSkins field value
 // and a boolean to check if the value has been set.
-func (o *Character) GetTattoosOk() (*string, bool) {
-	if o == nil || IsNil(o.Tattoos) {
+func (o *Character) GetWeaponsSkinsOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Tattoos, true
+	return &o.WeaponsSkins, true
 }
 
-// HasTattoos returns a boolean if a field has been set.
-func (o *Character) HasTattoos() bool {
-	if o != nil && !IsNil(o.Tattoos) {
-		return true
-	}
-
-	return false
+// SetWeaponsSkins sets field value
+func (o *Character) SetWeaponsSkins(v string) {
+	o.WeaponsSkins = v
 }
 
-// SetTattoos gets a reference to the given string and assigns it to the Tattoos field.
-func (o *Character) SetTattoos(v string) {
-	o.Tattoos = &v
-}
-
-// GetLicenses returns the Licenses field value if set, zero value otherwise.
-func (o *Character) GetLicenses() string {
-	if o == nil || IsNil(o.Licenses) {
+// GetVehiclesSkins returns the VehiclesSkins field value
+func (o *Character) GetVehiclesSkins() string {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Licenses
+
+	return o.VehiclesSkins
 }
 
-// GetLicensesOk returns a tuple with the Licenses field value if set, nil otherwise
+// GetVehiclesSkinsOk returns a tuple with the VehiclesSkins field value
 // and a boolean to check if the value has been set.
-func (o *Character) GetLicensesOk() (*string, bool) {
-	if o == nil || IsNil(o.Licenses) {
+func (o *Character) GetVehiclesSkinsOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Licenses, true
+	return &o.VehiclesSkins, true
 }
 
-// HasLicenses returns a boolean if a field has been set.
-func (o *Character) HasLicenses() bool {
-	if o != nil && !IsNil(o.Licenses) {
-		return true
-	}
-
-	return false
+// SetVehiclesSkins sets field value
+func (o *Character) SetVehiclesSkins(v string) {
+	o.VehiclesSkins = v
 }
 
-// SetLicenses gets a reference to the given string and assigns it to the Licenses field.
-func (o *Character) SetLicenses(v string) {
-	o.Licenses = &v
-}
-
-// GetDailyBonus returns the DailyBonus field value if set, zero value otherwise.
-func (o *Character) GetDailyBonus() string {
-	if o == nil || IsNil(o.DailyBonus) {
-		var ret string
+// GetHalloweenCount returns the HalloweenCount field value
+func (o *Character) GetHalloweenCount() int32 {
+	if o == nil {
+		var ret int32
 		return ret
 	}
-	return *o.DailyBonus
+
+	return o.HalloweenCount
 }
 
-// GetDailyBonusOk returns a tuple with the DailyBonus field value if set, nil otherwise
+// GetHalloweenCountOk returns a tuple with the HalloweenCount field value
 // and a boolean to check if the value has been set.
-func (o *Character) GetDailyBonusOk() (*string, bool) {
-	if o == nil || IsNil(o.DailyBonus) {
+func (o *Character) GetHalloweenCountOk() (*int32, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DailyBonus, true
+	return &o.HalloweenCount, true
 }
 
-// HasDailyBonus returns a boolean if a field has been set.
-func (o *Character) HasDailyBonus() bool {
-	if o != nil && !IsNil(o.DailyBonus) {
-		return true
+// SetHalloweenCount sets field value
+func (o *Character) SetHalloweenCount(v int32) {
+	o.HalloweenCount = v
+}
+
+// GetLoginTimestamp returns the LoginTimestamp field value
+func (o *Character) GetLoginTimestamp() int32 {
+	if o == nil {
+		var ret int32
+		return ret
 	}
 
-	return false
+	return o.LoginTimestamp
 }
 
-// SetDailyBonus gets a reference to the given string and assigns it to the DailyBonus field.
-func (o *Character) SetDailyBonus(v string) {
-	o.DailyBonus = &v
+// GetLoginTimestampOk returns a tuple with the LoginTimestamp field value
+// and a boolean to check if the value has been set.
+func (o *Character) GetLoginTimestampOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.LoginTimestamp, true
+}
+
+// SetLoginTimestamp sets field value
+func (o *Character) SetLoginTimestamp(v int32) {
+	o.LoginTimestamp = v
+}
+
+// GetRegisterTimestamp returns the RegisterTimestamp field value
+func (o *Character) GetRegisterTimestamp() time.Time {
+	if o == nil {
+		var ret time.Time
+		return ret
+	}
+
+	return o.RegisterTimestamp
+}
+
+// GetRegisterTimestampOk returns a tuple with the RegisterTimestamp field value
+// and a boolean to check if the value has been set.
+func (o *Character) GetRegisterTimestampOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.RegisterTimestamp, true
+}
+
+// SetRegisterTimestamp sets field value
+func (o *Character) SetRegisterTimestamp(v time.Time) {
+	o.RegisterTimestamp = v
 }
 
 func (o Character) MarshalJSON() ([]byte, error) {
@@ -1401,115 +1379,57 @@ func (o Character) MarshalJSON() ([]byte, error) {
 
 func (o Character) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ID) {
-		toSerialize["ID"] = o.ID
-	}
+	toSerialize["ID"] = o.ID
 	toSerialize["AccountID"] = o.AccountID
 	toSerialize["Name"] = o.Name
-	if !IsNil(o.Playingtime) {
-		toSerialize["Playingtime"] = o.Playingtime
-	}
+	toSerialize["Playingtime"] = o.Playingtime
 	toSerialize["Gender"] = o.Gender
 	toSerialize["STVO"] = o.STVO
 	toSerialize["VehicleLimit"] = o.VehicleLimit
-	if !IsNil(o.BusExp) {
-		toSerialize["BusExp"] = o.BusExp
-	}
-	if !IsNil(o.Spawn) {
-		toSerialize["Spawn"] = o.Spawn
-	}
-	if !IsNil(o.SpawnID) {
-		toSerialize["SpawnID"] = o.SpawnID
-	}
-	if !IsNil(o.Wanteds) {
-		toSerialize["Wanteds"] = o.Wanteds
-	}
-	if !IsNil(o.JailTime) {
-		toSerialize["JailTime"] = o.JailTime
-	}
-	if !IsNil(o.MethTime) {
-		toSerialize["MethTime"] = o.MethTime
-	}
-	if !IsNil(o.WeaponLicenseA) {
-		toSerialize["WeaponLicenseA"] = o.WeaponLicenseA
-	}
-	if !IsNil(o.WeaponLicenseB) {
-		toSerialize["WeaponLicenseB"] = o.WeaponLicenseB
-	}
-	if !IsNil(o.WeaponLicenseC) {
-		toSerialize["WeaponLicenseC"] = o.WeaponLicenseC
-	}
-	if !IsNil(o.ActivityTimestamp) {
-		toSerialize["ActivityTimestamp"] = o.ActivityTimestamp
-	}
+	toSerialize["BusExp"] = o.BusExp
+	toSerialize["Spawn"] = o.Spawn
+	toSerialize["SpawnID"] = o.SpawnID
+	toSerialize["Wanteds"] = o.Wanteds
+	toSerialize["JailTime"] = o.JailTime
+	toSerialize["MethTime"] = o.MethTime
+	toSerialize["WeaponLicenseA"] = o.WeaponLicenseA
+	toSerialize["WeaponLicenseB"] = o.WeaponLicenseB
+	toSerialize["WeaponLicenseC"] = o.WeaponLicenseC
+	toSerialize["ActivityTimestamp"] = o.ActivityTimestamp
 	toSerialize["QuestID"] = o.QuestID
-	if !IsNil(o.QuestStatus) {
-		toSerialize["QuestStatus"] = o.QuestStatus
-	}
-	if !IsNil(o.PhoneNumber) {
-		toSerialize["PhoneNumber"] = o.PhoneNumber
-	}
-	if !IsNil(o.FactionTime) {
-		toSerialize["FactionTime"] = o.FactionTime
-	}
-	if !IsNil(o.Grade) {
-		toSerialize["Grade"] = o.Grade
-	}
+	toSerialize["QuestStatus"] = o.QuestStatus
+	toSerialize["PhoneNumber"] = o.PhoneNumber
+	toSerialize["FactionTime"] = o.FactionTime
+	toSerialize["Grade"] = o.Grade
 	toSerialize["Raiting"] = o.Raiting
-	if !IsNil(o.DrivingLicenseA) {
-		toSerialize["DrivingLicenseA"] = o.DrivingLicenseA
-	}
+	toSerialize["DrivingLicenseA"] = o.DrivingLicenseA
 	toSerialize["FoodStatus"] = o.FoodStatus
 	toSerialize["ActivityStep"] = o.ActivityStep
-	if !IsNil(o.DrivingLicensesBlockedTimestamp) {
-		toSerialize["DrivingLicensesBlockedTimestamp"] = o.DrivingLicensesBlockedTimestamp
-	}
-	if !IsNil(o.WantedArchiv) {
-		toSerialize["WantedArchiv"] = o.WantedArchiv
-	}
-	if !IsNil(o.Skin) {
-		toSerialize["Skin"] = o.Skin
-	}
-	if !IsNil(o.Skills) {
-		toSerialize["Skills"] = o.Skills
-	}
-	if !IsNil(o.DailyQuests) {
-		toSerialize["DailyQuests"] = o.DailyQuests
-	}
-	if !IsNil(o.BonusVehicleLimit) {
-		toSerialize["BonusVehicleLimit"] = o.BonusVehicleLimit
-	}
-	if !IsNil(o.Accessory) {
-		toSerialize["Accessory"] = o.Accessory
-	}
-	if !IsNil(o.Achievements) {
-		toSerialize["Achievements"] = o.Achievements
-	}
-	if !IsNil(o.TotalStatus) {
-		toSerialize["TotalStatus"] = o.TotalStatus
-	}
-	if !IsNil(o.ActiveStatus) {
-		toSerialize["ActiveStatus"] = o.ActiveStatus
-	}
-	if !IsNil(o.SkillPoints) {
-		toSerialize["SkillPoints"] = o.SkillPoints
-	}
-	if !IsNil(o.SkillBranches) {
-		toSerialize["SkillBranches"] = o.SkillBranches
-	}
+	toSerialize["DrivingLicensesBlockedTimestamp"] = o.DrivingLicensesBlockedTimestamp
+	toSerialize["WantedArchiv"] = o.WantedArchiv
+	toSerialize["Skin"] = o.Skin
+	toSerialize["Skills"] = o.Skills
+	toSerialize["DailyQuests"] = o.DailyQuests
+	toSerialize["BonusVehicleLimit"] = o.BonusVehicleLimit
+	toSerialize["Accessory"] = o.Accessory
+	toSerialize["Achievements"] = o.Achievements
+	toSerialize["TotalStatus"] = o.TotalStatus
+	toSerialize["ActiveStatus"] = o.ActiveStatus
+	toSerialize["SkillPoints"] = o.SkillPoints
+	toSerialize["SkillBranches"] = o.SkillBranches
 	toSerialize["SkillSync"] = o.SkillSync
-	if !IsNil(o.ExpBoost) {
-		toSerialize["ExpBoost"] = o.ExpBoost
-	}
-	if !IsNil(o.Tattoos) {
-		toSerialize["Tattoos"] = o.Tattoos
-	}
-	if !IsNil(o.Licenses) {
-		toSerialize["Licenses"] = o.Licenses
-	}
-	if !IsNil(o.DailyBonus) {
-		toSerialize["DailyBonus"] = o.DailyBonus
-	}
+	toSerialize["Boosts"] = o.Boosts
+	toSerialize["Tattoos"] = o.Tattoos
+	toSerialize["Licenses"] = o.Licenses
+	toSerialize["DailyBonus"] = o.DailyBonus
+	toSerialize["SeasonPass"] = o.SeasonPass
+	toSerialize["SeasonPassPoints"] = o.SeasonPassPoints
+	toSerialize["SeasonPassPremium"] = o.SeasonPassPremium
+	toSerialize["WeaponsSkins"] = o.WeaponsSkins
+	toSerialize["VehiclesSkins"] = o.VehiclesSkins
+	toSerialize["HalloweenCount"] = o.HalloweenCount
+	toSerialize["LoginTimestamp"] = o.LoginTimestamp
+	toSerialize["RegisterTimestamp"] = o.RegisterTimestamp
 	return toSerialize, nil
 }
 
@@ -1518,16 +1438,57 @@ func (o *Character) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"ID",
 		"AccountID",
 		"Name",
+		"Playingtime",
 		"Gender",
 		"STVO",
 		"VehicleLimit",
+		"BusExp",
+		"Spawn",
+		"SpawnID",
+		"Wanteds",
+		"JailTime",
+		"MethTime",
+		"WeaponLicenseA",
+		"WeaponLicenseB",
+		"WeaponLicenseC",
+		"ActivityTimestamp",
 		"QuestID",
+		"QuestStatus",
+		"PhoneNumber",
+		"FactionTime",
+		"Grade",
 		"Raiting",
+		"DrivingLicenseA",
 		"FoodStatus",
 		"ActivityStep",
+		"DrivingLicensesBlockedTimestamp",
+		"WantedArchiv",
+		"Skin",
+		"Skills",
+		"DailyQuests",
+		"BonusVehicleLimit",
+		"Accessory",
+		"Achievements",
+		"TotalStatus",
+		"ActiveStatus",
+		"SkillPoints",
+		"SkillBranches",
 		"SkillSync",
+		"Boosts",
+		"Tattoos",
+		"Licenses",
+		"DailyBonus",
+		"SeasonPass",
+		"SeasonPassPoints",
+		"SeasonPassPremium",
+		"WeaponsSkins",
+		"VehiclesSkins",
+		"HalloweenCount",
+		"LoginTimestamp",
+		"RegisterTimestamp",
 	}
 
 	allProperties := make(map[string]interface{})
