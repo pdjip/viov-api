@@ -359,7 +359,7 @@ components:
         Rang2: Rang2
         Rang5: Rang5
         Rang4: Rang4
-        Tags: 8
+        Tags: Tags
         Msg: Msg
         R2: 7
         Boosts: Boosts
@@ -473,8 +473,7 @@ components:
           format: int32
           type: integer
         Tags:
-          format: int32
-          type: integer
+          type: string
       required:
       - B
       - B2

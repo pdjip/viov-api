@@ -40,13 +40,13 @@ Name | Type | Description | Notes
 **CraftingStorage** | **int32** |  | 
 **LastExpCount** | **int32** |  | 
 **LastActivity** | **int32** |  | 
-**Tags** | **int32** |  | 
+**Tags** | **string** |  | 
 
 ## Methods
 
 ### NewGroup
 
-`func NewGroup(iD int32, name string, exp int32, level int32, server int32, msg string, r int32, g int32, b int32, chatR int32, chatG int32, chatB int32, memberlimit int32, tag int32, rang0 string, rang1 string, rang4 string, rang5 string, forumMember int32, forumAdmin int32, synced int32, lastExp int32, r2 int32, g2 int32, b2 int32, type_ string, boost1 int32, skinMale string, skinFemale string, boosts string, relationships string, craftingStorage int32, lastExpCount int32, lastActivity int32, tags int32, ) *Group`
+`func NewGroup(iD int32, name string, exp int32, level int32, server int32, msg string, r int32, g int32, b int32, chatR int32, chatG int32, chatB int32, memberlimit int32, tag int32, rang0 string, rang1 string, rang4 string, rang5 string, forumMember int32, forumAdmin int32, synced int32, lastExp int32, r2 int32, g2 int32, b2 int32, type_ string, boost1 int32, skinMale string, skinFemale string, boosts string, relationships string, craftingStorage int32, lastExpCount int32, lastActivity int32, tags string, ) *Group`
 
 NewGroup instantiates a new Group object
 This constructor will assign default values to properties that have it defined,
@@ -793,20 +793,20 @@ SetLastActivity sets LastActivity field to given value.
 
 ### GetTags
 
-`func (o *Group) GetTags() int32`
+`func (o *Group) GetTags() string`
 
 GetTags returns the Tags field if non-nil, zero value otherwise.
 
 ### GetTagsOk
 
-`func (o *Group) GetTagsOk() (*int32, bool)`
+`func (o *Group) GetTagsOk() (*string, bool)`
 
 GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTags
 
-`func (o *Group) SetTags(v int32)`
+`func (o *Group) SetTags(v string)`
 
 SetTags sets Tags field to given value.
 

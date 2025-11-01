@@ -57,7 +57,7 @@ type Group struct {
 	CraftingStorage int32 `json:"CraftingStorage"`
 	LastExpCount int32 `json:"LastExpCount"`
 	LastActivity int32 `json:"LastActivity"`
-	Tags int32 `json:"Tags"`
+	Tags string `json:"Tags"`
 }
 
 type _Group Group
@@ -66,7 +66,7 @@ type _Group Group
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGroup(iD int32, name string, exp int32, level int32, server int32, msg string, r int32, g int32, b int32, chatR int32, chatG int32, chatB int32, memberlimit int32, tag int32, rang0 string, rang1 string, rang4 string, rang5 string, forumMember int32, forumAdmin int32, synced int32, lastExp int32, r2 int32, g2 int32, b2 int32, type_ string, boost1 int32, skinMale string, skinFemale string, boosts string, relationships string, craftingStorage int32, lastExpCount int32, lastActivity int32, tags int32) *Group {
+func NewGroup(iD int32, name string, exp int32, level int32, server int32, msg string, r int32, g int32, b int32, chatR int32, chatG int32, chatB int32, memberlimit int32, tag int32, rang0 string, rang1 string, rang4 string, rang5 string, forumMember int32, forumAdmin int32, synced int32, lastExp int32, r2 int32, g2 int32, b2 int32, type_ string, boost1 int32, skinMale string, skinFemale string, boosts string, relationships string, craftingStorage int32, lastExpCount int32, lastActivity int32, tags string) *Group {
 	this := Group{}
 	this.ID = iD
 	this.Name = name
@@ -995,9 +995,9 @@ func (o *Group) SetLastActivity(v int32) {
 }
 
 // GetTags returns the Tags field value
-func (o *Group) GetTags() int32 {
+func (o *Group) GetTags() string {
 	if o == nil {
-		var ret int32
+		var ret string
 		return ret
 	}
 
@@ -1006,7 +1006,7 @@ func (o *Group) GetTags() int32 {
 
 // GetTagsOk returns a tuple with the Tags field value
 // and a boolean to check if the value has been set.
-func (o *Group) GetTagsOk() (*int32, bool) {
+func (o *Group) GetTagsOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1014,7 +1014,7 @@ func (o *Group) GetTagsOk() (*int32, bool) {
 }
 
 // SetTags sets field value
-func (o *Group) SetTags(v int32) {
+func (o *Group) SetTags(v string) {
 	o.Tags = v
 }
 
