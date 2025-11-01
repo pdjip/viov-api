@@ -25,7 +25,7 @@ type GroupRank struct {
 	GroupID int32 `json:"GroupID"`
 	Name string `json:"Name"`
 	Bonus int32 `json:"Bonus"`
-	Leader bool `json:"Leader"`
+	Leader int32 `json:"Leader"`
 }
 
 type _GroupRank GroupRank
@@ -34,7 +34,7 @@ type _GroupRank GroupRank
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGroupRank(rankID int32, groupID int32, name string, bonus int32, leader bool) *GroupRank {
+func NewGroupRank(rankID int32, groupID int32, name string, bonus int32, leader int32) *GroupRank {
 	this := GroupRank{}
 	this.RankID = rankID
 	this.GroupID = groupID
@@ -149,9 +149,9 @@ func (o *GroupRank) SetBonus(v int32) {
 }
 
 // GetLeader returns the Leader field value
-func (o *GroupRank) GetLeader() bool {
+func (o *GroupRank) GetLeader() int32 {
 	if o == nil {
-		var ret bool
+		var ret int32
 		return ret
 	}
 
@@ -160,7 +160,7 @@ func (o *GroupRank) GetLeader() bool {
 
 // GetLeaderOk returns a tuple with the Leader field value
 // and a boolean to check if the value has been set.
-func (o *GroupRank) GetLeaderOk() (*bool, bool) {
+func (o *GroupRank) GetLeaderOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -168,7 +168,7 @@ func (o *GroupRank) GetLeaderOk() (*bool, bool) {
 }
 
 // SetLeader sets field value
-func (o *GroupRank) SetLeader(v bool) {
+func (o *GroupRank) SetLeader(v int32) {
 	o.Leader = v
 }
 

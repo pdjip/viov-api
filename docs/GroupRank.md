@@ -8,13 +8,13 @@ Name | Type | Description | Notes
 **GroupID** | **int32** |  | 
 **Name** | **string** |  | 
 **Bonus** | **int32** |  | 
-**Leader** | **bool** |  | 
+**Leader** | **int32** |  | 
 
 ## Methods
 
 ### NewGroupRank
 
-`func NewGroupRank(rankID int32, groupID int32, name string, bonus int32, leader bool, ) *GroupRank`
+`func NewGroupRank(rankID int32, groupID int32, name string, bonus int32, leader int32, ) *GroupRank`
 
 NewGroupRank instantiates a new GroupRank object
 This constructor will assign default values to properties that have it defined,
@@ -111,20 +111,20 @@ SetBonus sets Bonus field to given value.
 
 ### GetLeader
 
-`func (o *GroupRank) GetLeader() bool`
+`func (o *GroupRank) GetLeader() int32`
 
 GetLeader returns the Leader field if non-nil, zero value otherwise.
 
 ### GetLeaderOk
 
-`func (o *GroupRank) GetLeaderOk() (*bool, bool)`
+`func (o *GroupRank) GetLeaderOk() (*int32, bool)`
 
 GetLeaderOk returns a tuple with the Leader field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLeader
 
-`func (o *GroupRank) SetLeader(v bool)`
+`func (o *GroupRank) SetLeader(v int32)`
 
 SetLeader sets Leader field to given value.
 

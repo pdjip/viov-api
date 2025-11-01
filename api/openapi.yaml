@@ -558,7 +558,7 @@ components:
     GroupRank:
       example:
         RankID: 0
-        Leader: true
+        Leader: 5
         Bonus: 1
         GroupID: 6
         Name: Name
@@ -575,7 +575,8 @@ components:
           format: int32
           type: integer
         Leader:
-          type: boolean
+          format: int32
+          type: integer
       required:
       - Bonus
       - GroupID
