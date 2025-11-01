@@ -318,7 +318,7 @@ type ApiGroupGetRequest struct {
 	ApiService *GroupAPIService
 }
 
-func (r ApiGroupGetRequest) Execute() (*Group, *http.Response, error) {
+func (r ApiGroupGetRequest) Execute() ([]Group, *http.Response, error) {
 	return r.ApiService.GroupGetExecute(r)
 }
 
@@ -336,13 +336,13 @@ func (a *GroupAPIService) GroupGet(ctx context.Context) ApiGroupGetRequest {
 }
 
 // Execute executes the request
-//  @return Group
-func (a *GroupAPIService) GroupGetExecute(r ApiGroupGetRequest) (*Group, *http.Response, error) {
+//  @return []Group
+func (a *GroupAPIService) GroupGetExecute(r ApiGroupGetRequest) ([]Group, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *Group
+		localVarReturnValue  []Group
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupAPIService.GroupGet")

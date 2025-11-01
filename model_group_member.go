@@ -28,7 +28,7 @@ type GroupMember struct {
 	Name *string `json:"Name,omitempty"`
 	Permissions string `json:"Permissions"`
 	LastActivity int32 `json:"LastActivity"`
-	Online *bool `json:"Online,omitempty"`
+	Online int32 `json:"Online"`
 }
 
 type _GroupMember GroupMember
@@ -37,7 +37,7 @@ type _GroupMember GroupMember
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGroupMember(characterID int32, groupID int32, rank int32, activity int32, permissions string, lastActivity int32) *GroupMember {
+func NewGroupMember(characterID int32, groupID int32, rank int32, activity int32, permissions string, lastActivity int32, online int32) *GroupMember {
 	this := GroupMember{}
 	this.CharacterID = characterID
 	this.GroupID = groupID
@@ -45,6 +45,7 @@ func NewGroupMember(characterID int32, groupID int32, rank int32, activity int32
 	this.Activity = activity
 	this.Permissions = permissions
 	this.LastActivity = lastActivity
+	this.Online = online
 	return &this
 }
 
@@ -232,36 +233,28 @@ func (o *GroupMember) SetLastActivity(v int32) {
 	o.LastActivity = v
 }
 
-// GetOnline returns the Online field value if set, zero value otherwise.
-func (o *GroupMember) GetOnline() bool {
-	if o == nil || IsNil(o.Online) {
-		var ret bool
+// GetOnline returns the Online field value
+func (o *GroupMember) GetOnline() int32 {
+	if o == nil {
+		var ret int32
 		return ret
 	}
-	return *o.Online
+
+	return o.Online
 }
 
-// GetOnlineOk returns a tuple with the Online field value if set, nil otherwise
+// GetOnlineOk returns a tuple with the Online field value
 // and a boolean to check if the value has been set.
-func (o *GroupMember) GetOnlineOk() (*bool, bool) {
-	if o == nil || IsNil(o.Online) {
+func (o *GroupMember) GetOnlineOk() (*int32, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Online, true
+	return &o.Online, true
 }
 
-// HasOnline returns a boolean if a field has been set.
-func (o *GroupMember) HasOnline() bool {
-	if o != nil && !IsNil(o.Online) {
-		return true
-	}
-
-	return false
-}
-
-// SetOnline gets a reference to the given bool and assigns it to the Online field.
-func (o *GroupMember) SetOnline(v bool) {
-	o.Online = &v
+// SetOnline sets field value
+func (o *GroupMember) SetOnline(v int32) {
+	o.Online = v
 }
 
 func (o GroupMember) MarshalJSON() ([]byte, error) {
@@ -283,9 +276,7 @@ func (o GroupMember) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["Permissions"] = o.Permissions
 	toSerialize["LastActivity"] = o.LastActivity
-	if !IsNil(o.Online) {
-		toSerialize["Online"] = o.Online
-	}
+	toSerialize["Online"] = o.Online
 	return toSerialize, nil
 }
 
@@ -300,6 +291,7 @@ func (o *GroupMember) UnmarshalJSON(data []byte) (err error) {
 		"Activity",
 		"Permissions",
 		"LastActivity",
+		"Online",
 	}
 
 	allProperties := make(map[string]interface{})

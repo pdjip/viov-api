@@ -11,13 +11,13 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** |  | [optional] 
 **Permissions** | **string** |  | 
 **LastActivity** | **int32** |  | 
-**Online** | Pointer to **bool** |  | [optional] 
+**Online** | **int32** |  | 
 
 ## Methods
 
 ### NewGroupMember
 
-`func NewGroupMember(characterID int32, groupID int32, rank int32, activity int32, permissions string, lastActivity int32, ) *GroupMember`
+`func NewGroupMember(characterID int32, groupID int32, rank int32, activity int32, permissions string, lastActivity int32, online int32, ) *GroupMember`
 
 NewGroupMember instantiates a new GroupMember object
 This constructor will assign default values to properties that have it defined,
@@ -179,28 +179,23 @@ SetLastActivity sets LastActivity field to given value.
 
 ### GetOnline
 
-`func (o *GroupMember) GetOnline() bool`
+`func (o *GroupMember) GetOnline() int32`
 
 GetOnline returns the Online field if non-nil, zero value otherwise.
 
 ### GetOnlineOk
 
-`func (o *GroupMember) GetOnlineOk() (*bool, bool)`
+`func (o *GroupMember) GetOnlineOk() (*int32, bool)`
 
 GetOnlineOk returns a tuple with the Online field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOnline
 
-`func (o *GroupMember) SetOnline(v bool)`
+`func (o *GroupMember) SetOnline(v int32)`
 
 SetOnline sets Online field to given value.
 
-### HasOnline
-
-`func (o *GroupMember) HasOnline() bool`
-
-HasOnline returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

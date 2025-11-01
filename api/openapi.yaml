@@ -28,7 +28,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Group"
+                items:
+                  $ref: "#/components/schemas/Group"
+                type: array
           description: OK
       security:
       - vio_auth:
@@ -341,7 +343,10 @@ components:
         Server: 5
         G: 2
         Chat_B: 2
+        ForumMember: 1
         G2: 1
+        LastExpCount: 9
+        ForumAdmin: 1
         Name: Name
         SkinMale: SkinMale
         R: 5
@@ -354,20 +359,23 @@ components:
         Rang2: Rang2
         Rang5: Rang5
         Rang4: Rang4
+        Tags: 8
         Msg: Msg
-        R2: 1
+        R2: 7
         Boosts: Boosts
         SkinFemale: SkinFemale
-        LastExp: 1
-        B2: 6
+        Synced: 1
+        LastExp: 6
+        LastActivity: 6
+        B2: 4
         Type: Type
         Chat_R: 9
         Level: 1
         Tag: 7
         Exp: 6
         Chat_G: 3
-        Boost1: 7
-        CraftingStorage: 1
+        Boost1: 5
+        CraftingStorage: 9
       properties:
         ID:
           format: int32
@@ -421,6 +429,15 @@ components:
           type: string
         Rang5:
           type: string
+        ForumMember:
+          format: int32
+          type: integer
+        ForumAdmin:
+          format: int32
+          type: integer
+        Synced:
+          format: int32
+          type: integer
         LastExp:
           format: int32
           type: integer
@@ -449,22 +466,39 @@ components:
         CraftingStorage:
           format: int32
           type: integer
+        LastExpCount:
+          format: int32
+          type: integer
+        LastActivity:
+          format: int32
+          type: integer
+        Tags:
+          format: int32
+          type: integer
       required:
+      - B
       - B2
       - Boost1
       - Boosts
       - Chat_B
       - Chat_G
       - Chat_R
+      - CraftingStorage
       - Exp
+      - ForumAdmin
+      - ForumAdmin
+      - ForumMember
       - G
       - G2
       - ID
+      - LastActivity
       - LastExp
+      - LastExpCount
       - Level
       - Memberlimit
       - Msg
       - Name
+      - R
       - R2
       - Rang0
       - Rang1
@@ -474,7 +508,9 @@ components:
       - Server
       - SkinFemale
       - SkinMale
+      - Synced
       - Tag
+      - Tags
       - Type
       type: object
     GroupMember:
@@ -483,7 +519,7 @@ components:
         Permissions: Permissions
         Activity: 5
         Rank: 1
-        Online: true
+        Online: 2
         LastActivity: 5
         GroupID: 6
         Name: Name
@@ -508,13 +544,15 @@ components:
           format: int32
           type: integer
         Online:
-          type: boolean
+          format: int32
+          type: integer
       required:
       - Activity
       - Aimbot
       - CharacterID
       - GroupID
       - LastActivity
+      - Online
       - Permissions
       - Rank
       type: object

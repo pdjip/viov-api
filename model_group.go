@@ -27,9 +27,9 @@ type Group struct {
 	Level int32 `json:"Level"`
 	Server int32 `json:"Server"`
 	Msg string `json:"Msg"`
-	R *int32 `json:"R,omitempty"`
+	R int32 `json:"R"`
 	G int32 `json:"G"`
-	B *int32 `json:"B,omitempty"`
+	B int32 `json:"B"`
 	ChatR int32 `json:"Chat_R"`
 	ChatG int32 `json:"Chat_G"`
 	ChatB int32 `json:"Chat_B"`
@@ -41,6 +41,9 @@ type Group struct {
 	Rang3 *string `json:"Rang3,omitempty"`
 	Rang4 string `json:"Rang4"`
 	Rang5 string `json:"Rang5"`
+	ForumMember int32 `json:"ForumMember"`
+	ForumAdmin int32 `json:"ForumAdmin"`
+	Synced int32 `json:"Synced"`
 	LastExp int32 `json:"LastExp"`
 	R2 int32 `json:"R2"`
 	G2 int32 `json:"G2"`
@@ -51,7 +54,10 @@ type Group struct {
 	SkinFemale string `json:"SkinFemale"`
 	Boosts string `json:"Boosts"`
 	Relationships string `json:"Relationships"`
-	CraftingStorage *int32 `json:"CraftingStorage,omitempty"`
+	CraftingStorage int32 `json:"CraftingStorage"`
+	LastExpCount int32 `json:"LastExpCount"`
+	LastActivity int32 `json:"LastActivity"`
+	Tags int32 `json:"Tags"`
 }
 
 type _Group Group
@@ -60,7 +66,7 @@ type _Group Group
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGroup(iD int32, name string, exp int32, level int32, server int32, msg string, g int32, chatR int32, chatG int32, chatB int32, memberlimit int32, tag int32, rang0 string, rang1 string, rang4 string, rang5 string, lastExp int32, r2 int32, g2 int32, b2 int32, type_ string, boost1 int32, skinMale string, skinFemale string, boosts string, relationships string) *Group {
+func NewGroup(iD int32, name string, exp int32, level int32, server int32, msg string, r int32, g int32, b int32, chatR int32, chatG int32, chatB int32, memberlimit int32, tag int32, rang0 string, rang1 string, rang4 string, rang5 string, forumMember int32, forumAdmin int32, synced int32, lastExp int32, r2 int32, g2 int32, b2 int32, type_ string, boost1 int32, skinMale string, skinFemale string, boosts string, relationships string, craftingStorage int32, lastExpCount int32, lastActivity int32, tags int32) *Group {
 	this := Group{}
 	this.ID = iD
 	this.Name = name
@@ -68,7 +74,9 @@ func NewGroup(iD int32, name string, exp int32, level int32, server int32, msg s
 	this.Level = level
 	this.Server = server
 	this.Msg = msg
+	this.R = r
 	this.G = g
+	this.B = b
 	this.ChatR = chatR
 	this.ChatG = chatG
 	this.ChatB = chatB
@@ -78,6 +86,9 @@ func NewGroup(iD int32, name string, exp int32, level int32, server int32, msg s
 	this.Rang1 = rang1
 	this.Rang4 = rang4
 	this.Rang5 = rang5
+	this.ForumMember = forumMember
+	this.ForumAdmin = forumAdmin
+	this.Synced = synced
 	this.LastExp = lastExp
 	this.R2 = r2
 	this.G2 = g2
@@ -88,6 +99,10 @@ func NewGroup(iD int32, name string, exp int32, level int32, server int32, msg s
 	this.SkinFemale = skinFemale
 	this.Boosts = boosts
 	this.Relationships = relationships
+	this.CraftingStorage = craftingStorage
+	this.LastExpCount = lastExpCount
+	this.LastActivity = lastActivity
+	this.Tags = tags
 	return &this
 }
 
@@ -243,36 +258,28 @@ func (o *Group) SetMsg(v string) {
 	o.Msg = v
 }
 
-// GetR returns the R field value if set, zero value otherwise.
+// GetR returns the R field value
 func (o *Group) GetR() int32 {
-	if o == nil || IsNil(o.R) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.R
+
+	return o.R
 }
 
-// GetROk returns a tuple with the R field value if set, nil otherwise
+// GetROk returns a tuple with the R field value
 // and a boolean to check if the value has been set.
 func (o *Group) GetROk() (*int32, bool) {
-	if o == nil || IsNil(o.R) {
+	if o == nil {
 		return nil, false
 	}
-	return o.R, true
+	return &o.R, true
 }
 
-// HasR returns a boolean if a field has been set.
-func (o *Group) HasR() bool {
-	if o != nil && !IsNil(o.R) {
-		return true
-	}
-
-	return false
-}
-
-// SetR gets a reference to the given int32 and assigns it to the R field.
+// SetR sets field value
 func (o *Group) SetR(v int32) {
-	o.R = &v
+	o.R = v
 }
 
 // GetG returns the G field value
@@ -299,36 +306,28 @@ func (o *Group) SetG(v int32) {
 	o.G = v
 }
 
-// GetB returns the B field value if set, zero value otherwise.
+// GetB returns the B field value
 func (o *Group) GetB() int32 {
-	if o == nil || IsNil(o.B) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.B
+
+	return o.B
 }
 
-// GetBOk returns a tuple with the B field value if set, nil otherwise
+// GetBOk returns a tuple with the B field value
 // and a boolean to check if the value has been set.
 func (o *Group) GetBOk() (*int32, bool) {
-	if o == nil || IsNil(o.B) {
+	if o == nil {
 		return nil, false
 	}
-	return o.B, true
+	return &o.B, true
 }
 
-// HasB returns a boolean if a field has been set.
-func (o *Group) HasB() bool {
-	if o != nil && !IsNil(o.B) {
-		return true
-	}
-
-	return false
-}
-
-// SetB gets a reference to the given int32 and assigns it to the B field.
+// SetB sets field value
 func (o *Group) SetB(v int32) {
-	o.B = &v
+	o.B = v
 }
 
 // GetChatR returns the ChatR field value
@@ -611,6 +610,78 @@ func (o *Group) SetRang5(v string) {
 	o.Rang5 = v
 }
 
+// GetForumMember returns the ForumMember field value
+func (o *Group) GetForumMember() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.ForumMember
+}
+
+// GetForumMemberOk returns a tuple with the ForumMember field value
+// and a boolean to check if the value has been set.
+func (o *Group) GetForumMemberOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ForumMember, true
+}
+
+// SetForumMember sets field value
+func (o *Group) SetForumMember(v int32) {
+	o.ForumMember = v
+}
+
+// GetForumAdmin returns the ForumAdmin field value
+func (o *Group) GetForumAdmin() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.ForumAdmin
+}
+
+// GetForumAdminOk returns a tuple with the ForumAdmin field value
+// and a boolean to check if the value has been set.
+func (o *Group) GetForumAdminOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ForumAdmin, true
+}
+
+// SetForumAdmin sets field value
+func (o *Group) SetForumAdmin(v int32) {
+	o.ForumAdmin = v
+}
+
+// GetSynced returns the Synced field value
+func (o *Group) GetSynced() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.Synced
+}
+
+// GetSyncedOk returns a tuple with the Synced field value
+// and a boolean to check if the value has been set.
+func (o *Group) GetSyncedOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Synced, true
+}
+
+// SetSynced sets field value
+func (o *Group) SetSynced(v int32) {
+	o.Synced = v
+}
+
 // GetLastExp returns the LastExp field value
 func (o *Group) GetLastExp() int32 {
 	if o == nil {
@@ -851,36 +922,100 @@ func (o *Group) SetRelationships(v string) {
 	o.Relationships = v
 }
 
-// GetCraftingStorage returns the CraftingStorage field value if set, zero value otherwise.
+// GetCraftingStorage returns the CraftingStorage field value
 func (o *Group) GetCraftingStorage() int32 {
-	if o == nil || IsNil(o.CraftingStorage) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.CraftingStorage
+
+	return o.CraftingStorage
 }
 
-// GetCraftingStorageOk returns a tuple with the CraftingStorage field value if set, nil otherwise
+// GetCraftingStorageOk returns a tuple with the CraftingStorage field value
 // and a boolean to check if the value has been set.
 func (o *Group) GetCraftingStorageOk() (*int32, bool) {
-	if o == nil || IsNil(o.CraftingStorage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CraftingStorage, true
+	return &o.CraftingStorage, true
 }
 
-// HasCraftingStorage returns a boolean if a field has been set.
-func (o *Group) HasCraftingStorage() bool {
-	if o != nil && !IsNil(o.CraftingStorage) {
-		return true
+// SetCraftingStorage sets field value
+func (o *Group) SetCraftingStorage(v int32) {
+	o.CraftingStorage = v
+}
+
+// GetLastExpCount returns the LastExpCount field value
+func (o *Group) GetLastExpCount() int32 {
+	if o == nil {
+		var ret int32
+		return ret
 	}
 
-	return false
+	return o.LastExpCount
 }
 
-// SetCraftingStorage gets a reference to the given int32 and assigns it to the CraftingStorage field.
-func (o *Group) SetCraftingStorage(v int32) {
-	o.CraftingStorage = &v
+// GetLastExpCountOk returns a tuple with the LastExpCount field value
+// and a boolean to check if the value has been set.
+func (o *Group) GetLastExpCountOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.LastExpCount, true
+}
+
+// SetLastExpCount sets field value
+func (o *Group) SetLastExpCount(v int32) {
+	o.LastExpCount = v
+}
+
+// GetLastActivity returns the LastActivity field value
+func (o *Group) GetLastActivity() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.LastActivity
+}
+
+// GetLastActivityOk returns a tuple with the LastActivity field value
+// and a boolean to check if the value has been set.
+func (o *Group) GetLastActivityOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.LastActivity, true
+}
+
+// SetLastActivity sets field value
+func (o *Group) SetLastActivity(v int32) {
+	o.LastActivity = v
+}
+
+// GetTags returns the Tags field value
+func (o *Group) GetTags() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.Tags
+}
+
+// GetTagsOk returns a tuple with the Tags field value
+// and a boolean to check if the value has been set.
+func (o *Group) GetTagsOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Tags, true
+}
+
+// SetTags sets field value
+func (o *Group) SetTags(v int32) {
+	o.Tags = v
 }
 
 func (o Group) MarshalJSON() ([]byte, error) {
@@ -899,13 +1034,9 @@ func (o Group) ToMap() (map[string]interface{}, error) {
 	toSerialize["Level"] = o.Level
 	toSerialize["Server"] = o.Server
 	toSerialize["Msg"] = o.Msg
-	if !IsNil(o.R) {
-		toSerialize["R"] = o.R
-	}
+	toSerialize["R"] = o.R
 	toSerialize["G"] = o.G
-	if !IsNil(o.B) {
-		toSerialize["B"] = o.B
-	}
+	toSerialize["B"] = o.B
 	toSerialize["Chat_R"] = o.ChatR
 	toSerialize["Chat_G"] = o.ChatG
 	toSerialize["Chat_B"] = o.ChatB
@@ -921,6 +1052,9 @@ func (o Group) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["Rang4"] = o.Rang4
 	toSerialize["Rang5"] = o.Rang5
+	toSerialize["ForumMember"] = o.ForumMember
+	toSerialize["ForumAdmin"] = o.ForumAdmin
+	toSerialize["Synced"] = o.Synced
 	toSerialize["LastExp"] = o.LastExp
 	toSerialize["R2"] = o.R2
 	toSerialize["G2"] = o.G2
@@ -931,9 +1065,10 @@ func (o Group) ToMap() (map[string]interface{}, error) {
 	toSerialize["SkinFemale"] = o.SkinFemale
 	toSerialize["Boosts"] = o.Boosts
 	toSerialize["Relationships"] = o.Relationships
-	if !IsNil(o.CraftingStorage) {
-		toSerialize["CraftingStorage"] = o.CraftingStorage
-	}
+	toSerialize["CraftingStorage"] = o.CraftingStorage
+	toSerialize["LastExpCount"] = o.LastExpCount
+	toSerialize["LastActivity"] = o.LastActivity
+	toSerialize["Tags"] = o.Tags
 	return toSerialize, nil
 }
 
@@ -948,7 +1083,9 @@ func (o *Group) UnmarshalJSON(data []byte) (err error) {
 		"Level",
 		"Server",
 		"Msg",
+		"R",
 		"G",
+		"B",
 		"Chat_R",
 		"Chat_G",
 		"Chat_B",
@@ -958,6 +1095,9 @@ func (o *Group) UnmarshalJSON(data []byte) (err error) {
 		"Rang1",
 		"Rang4",
 		"Rang5",
+		"ForumMember",
+		"ForumAdmin",
+		"Synced",
 		"LastExp",
 		"R2",
 		"G2",
@@ -968,6 +1108,10 @@ func (o *Group) UnmarshalJSON(data []byte) (err error) {
 		"SkinFemale",
 		"Boosts",
 		"Relationships",
+		"CraftingStorage",
+		"LastExpCount",
+		"LastActivity",
+		"Tags",
 	}
 
 	allProperties := make(map[string]interface{})

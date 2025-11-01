@@ -199,7 +199,7 @@ Other parameters are passed through a pointer to a apiGroupFairplayBlacklistGetR
 
 ## GroupGet
 
-> Group GroupGet(ctx).Execute()
+> []Group GroupGet(ctx).Execute()
 
 Get Group Data
 
@@ -224,7 +224,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `GroupAPI.GroupGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GroupGet`: Group
+	// response from `GroupGet`: []Group
 	fmt.Fprintf(os.Stdout, "Response from `GroupAPI.GroupGet`: %v\n", resp)
 }
 ```
@@ -240,7 +240,7 @@ Other parameters are passed through a pointer to a apiGroupGetRequest struct via
 
 ### Return type
 
-[**Group**](Group.md)
+[**[]Group**](Group.md)
 
 ### Authorization
 

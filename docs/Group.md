@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **Level** | **int32** |  | 
 **Server** | **int32** |  | 
 **Msg** | **string** |  | 
-**R** | Pointer to **int32** |  | [optional] 
+**R** | **int32** |  | 
 **G** | **int32** |  | 
-**B** | Pointer to **int32** |  | [optional] 
+**B** | **int32** |  | 
 **ChatR** | **int32** |  | 
 **ChatG** | **int32** |  | 
 **ChatB** | **int32** |  | 
@@ -24,6 +24,9 @@ Name | Type | Description | Notes
 **Rang3** | Pointer to **string** |  | [optional] 
 **Rang4** | **string** |  | 
 **Rang5** | **string** |  | 
+**ForumMember** | **int32** |  | 
+**ForumAdmin** | **int32** |  | 
+**Synced** | **int32** |  | 
 **LastExp** | **int32** |  | 
 **R2** | **int32** |  | 
 **G2** | **int32** |  | 
@@ -34,13 +37,16 @@ Name | Type | Description | Notes
 **SkinFemale** | **string** |  | 
 **Boosts** | **string** |  | 
 **Relationships** | **string** |  | 
-**CraftingStorage** | Pointer to **int32** |  | [optional] 
+**CraftingStorage** | **int32** |  | 
+**LastExpCount** | **int32** |  | 
+**LastActivity** | **int32** |  | 
+**Tags** | **int32** |  | 
 
 ## Methods
 
 ### NewGroup
 
-`func NewGroup(iD int32, name string, exp int32, level int32, server int32, msg string, g int32, chatR int32, chatG int32, chatB int32, memberlimit int32, tag int32, rang0 string, rang1 string, rang4 string, rang5 string, lastExp int32, r2 int32, g2 int32, b2 int32, type_ string, boost1 int32, skinMale string, skinFemale string, boosts string, relationships string, ) *Group`
+`func NewGroup(iD int32, name string, exp int32, level int32, server int32, msg string, r int32, g int32, b int32, chatR int32, chatG int32, chatB int32, memberlimit int32, tag int32, rang0 string, rang1 string, rang4 string, rang5 string, forumMember int32, forumAdmin int32, synced int32, lastExp int32, r2 int32, g2 int32, b2 int32, type_ string, boost1 int32, skinMale string, skinFemale string, boosts string, relationships string, craftingStorage int32, lastExpCount int32, lastActivity int32, tags int32, ) *Group`
 
 NewGroup instantiates a new Group object
 This constructor will assign default values to properties that have it defined,
@@ -194,11 +200,6 @@ and a boolean to check if the value has been set.
 
 SetR sets R field to given value.
 
-### HasR
-
-`func (o *Group) HasR() bool`
-
-HasR returns a boolean if a field has been set.
 
 ### GetG
 
@@ -239,11 +240,6 @@ and a boolean to check if the value has been set.
 
 SetB sets B field to given value.
 
-### HasB
-
-`func (o *Group) HasB() bool`
-
-HasB returns a boolean if a field has been set.
 
 ### GetChatR
 
@@ -475,6 +471,66 @@ and a boolean to check if the value has been set.
 SetRang5 sets Rang5 field to given value.
 
 
+### GetForumMember
+
+`func (o *Group) GetForumMember() int32`
+
+GetForumMember returns the ForumMember field if non-nil, zero value otherwise.
+
+### GetForumMemberOk
+
+`func (o *Group) GetForumMemberOk() (*int32, bool)`
+
+GetForumMemberOk returns a tuple with the ForumMember field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetForumMember
+
+`func (o *Group) SetForumMember(v int32)`
+
+SetForumMember sets ForumMember field to given value.
+
+
+### GetForumAdmin
+
+`func (o *Group) GetForumAdmin() int32`
+
+GetForumAdmin returns the ForumAdmin field if non-nil, zero value otherwise.
+
+### GetForumAdminOk
+
+`func (o *Group) GetForumAdminOk() (*int32, bool)`
+
+GetForumAdminOk returns a tuple with the ForumAdmin field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetForumAdmin
+
+`func (o *Group) SetForumAdmin(v int32)`
+
+SetForumAdmin sets ForumAdmin field to given value.
+
+
+### GetSynced
+
+`func (o *Group) GetSynced() int32`
+
+GetSynced returns the Synced field if non-nil, zero value otherwise.
+
+### GetSyncedOk
+
+`func (o *Group) GetSyncedOk() (*int32, bool)`
+
+GetSyncedOk returns a tuple with the Synced field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSynced
+
+`func (o *Group) SetSynced(v int32)`
+
+SetSynced sets Synced field to given value.
+
+
 ### GetLastExp
 
 `func (o *Group) GetLastExp() int32`
@@ -694,11 +750,66 @@ and a boolean to check if the value has been set.
 
 SetCraftingStorage sets CraftingStorage field to given value.
 
-### HasCraftingStorage
 
-`func (o *Group) HasCraftingStorage() bool`
+### GetLastExpCount
 
-HasCraftingStorage returns a boolean if a field has been set.
+`func (o *Group) GetLastExpCount() int32`
+
+GetLastExpCount returns the LastExpCount field if non-nil, zero value otherwise.
+
+### GetLastExpCountOk
+
+`func (o *Group) GetLastExpCountOk() (*int32, bool)`
+
+GetLastExpCountOk returns a tuple with the LastExpCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastExpCount
+
+`func (o *Group) SetLastExpCount(v int32)`
+
+SetLastExpCount sets LastExpCount field to given value.
+
+
+### GetLastActivity
+
+`func (o *Group) GetLastActivity() int32`
+
+GetLastActivity returns the LastActivity field if non-nil, zero value otherwise.
+
+### GetLastActivityOk
+
+`func (o *Group) GetLastActivityOk() (*int32, bool)`
+
+GetLastActivityOk returns a tuple with the LastActivity field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastActivity
+
+`func (o *Group) SetLastActivity(v int32)`
+
+SetLastActivity sets LastActivity field to given value.
+
+
+### GetTags
+
+`func (o *Group) GetTags() int32`
+
+GetTags returns the Tags field if non-nil, zero value otherwise.
+
+### GetTagsOk
+
+`func (o *Group) GetTagsOk() (*int32, bool)`
+
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTags
+
+`func (o *Group) SetTags(v int32)`
+
+SetTags sets Tags field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
